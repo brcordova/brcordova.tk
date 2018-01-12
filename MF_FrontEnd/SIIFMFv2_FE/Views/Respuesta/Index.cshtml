@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MF_Modelo.Cuenta_Abono_Respuesta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_clave)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_empresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_medioEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_folioOrigen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_codigoError)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_tipoPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_rastreoDevolucion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuenta_Abono_Respuesta_fechaRegistro)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_clave)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_empresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_medioEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_folioOrigen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_codigoError)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_tipoPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_rastreoDevolucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Respuesta_fechaRegistro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

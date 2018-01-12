@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="SPEI" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\brostos\\Documents\\BROC\\Proyectos\\SPEI\\SIIFMFv2\\MF_FrontEnd\\SIIFMFv2_FE\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\brostos\\Documents\\BROC\\Proyectos\\SPEI\\SIIFMFv2\\MF_FrontEnd\\SIIFMFv2_FE\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="SPEIContext-Web.config Connection String" description="" value="Data Source=fondos-dbdev;Initial Catalog=SPEI;Persist Security Info=True;User ID=rostos;Password=Masfondos20#" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brostos\\Documents\\BROC\\Proyectos\\SPEI\\SIIFMFv2\\MF_FrontEnd\\SIIFMFv2_FE\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SPEIContext']/@connectionString" />
+  </parameter>
+</parameters>
