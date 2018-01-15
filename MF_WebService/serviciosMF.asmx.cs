@@ -39,6 +39,7 @@ namespace MF_WebService
                 Cuenta_Abono abono = new Cuenta_Abono();
                 Cuenta_Abono_Respuesta abonoResponse = new Cuenta_Abono_Respuesta();
                 Cuenta_Abono_Conciliacion abonoConciliacion = new Cuenta_Abono_Conciliacion();
+                Cuenta_CLABE clabe = new Cuenta_CLABE();
 
                 if (xmlDoc != null)
                 {
@@ -58,7 +59,7 @@ namespace MF_WebService
                         int intSts_Abono = 0;
 
                         // Verifico si existe la CLABE en caso positivo 
-                        if (abono.BuscaCLABE(strCLABE))
+                        if ( clabe.existeCLABE(strCLABE))
                         {
                             strCodigoError = "0"; // Registro satisfactorio.
                             intSts_Abono = 10;
@@ -150,9 +151,9 @@ namespace MF_WebService
 
                         abono.Cuenta_Abono_Sts_Abono_Id = intSts_Abono;
 
-                        //Cuenta_Abono abo =  abono.Agrega(abono);
-                        abono.Agrega();
-                        sendAbonos.Add(abono);
+                        // Agrego al listado
+                        if(abono.Agregar())
+                            sendAbonos.Add(abono);
 
                         #endregion
 
@@ -163,7 +164,7 @@ namespace MF_WebService
                         abonoResponse.Cuenta_Abono_Respuesta_folioOrigen = abono.Cuenta_Abono_Id.ToString();
                         abonoResponse.Cuenta_Abono_Respuesta_codigoError = Convert.ToInt32(strCodigoError);
                         abonoResponse.Cuenta_Abono_Respuesta_tipoPago = 1;
-                        abonoResponse.Cuenta_Abono_Respuesta_rastreoDevolucion = "MSRD-" + abono.Id.ToString().PadLeft(8, '0');
+                        abonoResponse.Cuenta_Abono_Respuesta_rastreoDevolucion = "MFRD-" + abono.Id.ToString().PadLeft(5, '0');
 
                         abonoResponse.Agrega();
                         #endregion
@@ -190,7 +191,7 @@ namespace MF_WebService
                         abonoConciliacion.pfltConciliacionPendienteImporte =
                             (decimal)abono.Cuenta_Abono_monto;
                         abonoConciliacion.psintConciliacionPendienteIngEgr = 5;
-                        abonoConciliacion.pstrUsuarioId = "xmlUser";
+                        abonoConciliacion.pstrUsuarioId = "BROSTOS";
                         abonoConciliacion.pstrConciliacionPendienteReferencia =
                             abono.Cuenta_Abono_referenciaNumerica.ToString();
                         abonoConciliacion.pstrConciliacionPendienteMovtoBanco = "";

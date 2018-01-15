@@ -5,6 +5,7 @@ namespace MF_Modelo
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     public partial class Cuenta_Abono_Respuesta
     {
@@ -13,9 +14,9 @@ namespace MF_Modelo
         #region Miembros
         public int Id { get; set; }
 
-        public int? Cuenta_Abono_Respuesta_Id { get; set; }
+        public int Cuenta_Abono_Respuesta_Id { get; set; }
 
-        public int? Cuenta_Abono_Respuesta_clave { get; set; }
+        public int Cuenta_Abono_Respuesta_clave { get; set; }
 
         [StringLength(10)]
         public string Cuenta_Abono_Respuesta_empresa { get; set; }
@@ -33,14 +34,33 @@ namespace MF_Modelo
         [StringLength(10)]
         public string Cuenta_Abono_Respuesta_rastreoDevolucion { get; set; }
 
-        public DateTime? Cuenta_Abono_Respuesta_fechaRegistro { get; set; }
+        public DateTime Cuenta_Abono_Respuesta_fechaRegistro { get; set; }
         #endregion 
 
         #region Métodos
         public void Agrega()
         {
-            db.Cuenta_Abono_Respuesta.Add(this);
-            db.SaveChanges();
+            try
+            {
+                Cuenta_Abono_Respuesta_Id = (maximoValor() + 1);
+                Cuenta_Abono_Respuesta_fechaRegistro = DateTime.Now;
+                db.Cuenta_Abono_Respuesta.Add(this);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                
+                throw new Exception(ex.Message);
+            }
+            
+        }
+
+        public int maximoValor()
+        {
+            int idMax = (from car in db.Cuenta_Abono_Respuesta
+                         select car.Cuenta_Abono_Respuesta_Id).Max();
+
+            return idMax;
         }
         #endregion
 

@@ -1,0 +1,60 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error " + @ViewBag.Title;
+}
+
+<div class="container">
+    <div class="text-center">
+        <img src="~/Content/img/LogoMF.png" alt="Error" />
+    </div>
+
+    <div class="text-center">
+        <img src="~/Content/img/icon_azul1.png" alt="" /> Error en la aplicación
+        <img src="~/Content/img/icon_azul2.png" alt="" />
+    </div>
+    <br />
+</div>
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h3 class="panel-title">@ViewBag.Title</h3>
+    </div>
+    <div class="panel-body">
+        Este código de error se produce por <p class="text-primary">@ViewBag.Description </p>
+
+        <div class="panel panel-info">
+            <div class="panel-heading">El servidor arrojo el siguiente mensaje</div>
+            <div class="panel-body">
+                @ViewBag.ErrorServidor
+                <br />
+                @{
+                    if (Request.IsLocal)
+                    {
+                        if (Model != null && Model.Exception != null)
+                        {
+                            <p>
+                                Controlador: @Model.ControllerName
+                                Acción: @Model.ActionName
+                                Mensaje: @Model.Exception.Message
+                                Detalle: @Model.Exception.StackTrace
+                            </p>
+                        }
+                        else
+                        {
+                            <h3>La excepción es nula.</h3>
+                        }
+                    }
+                    else
+                    {
+                        <span class="alert alert-info" role="alert">Error reportado al administrador</span>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-right">
+    <a href="/" class="btn btn-primary">Inicio</a>
+</div>

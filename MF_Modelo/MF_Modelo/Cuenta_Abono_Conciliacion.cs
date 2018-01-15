@@ -3,12 +3,9 @@
 
     using NLog;
     using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Configuration;
 
     public class Cuenta_Abono_Conciliacion
     {

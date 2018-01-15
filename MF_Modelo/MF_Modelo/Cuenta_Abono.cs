@@ -75,45 +75,25 @@ namespace MF_Modelo
 
         #region Métodos
 
-
-        /// <summary>
-        /// Verifica si existe la CLABE
-        /// </summary>
-        /// <param name="strCLABE">La CLABE del pago recibido</param>
-        /// <returns>En caso de existir devuelve verdadero</returns>
-        public bool BuscaCLABE(string strCLABE)
+        public bool Agregar()
         {
-            bool resultado = false;
+            bool ret = false;
 
-            using (var context = new SPEIContext())
+            try
             {
-                var CLABE = new SqlParameter("@Cuenta_Clabe_CLABE", 1);
-                var registros = new SqlParameter("@RegistroExistente", 0)
-                        {
-                            Direction = System.Data.ParameterDirection.Output
-                        };
-                resultado = context.Database.SqlQuery<bool>("[SPEI].[dbo].[sp_s_BuscaCLABE] @Cuenta_Clabe_CLABE, @RegistroExistente OUT", CLABE, registros).Single();
+                Cuenta_Abono_fechaRegistro = DateTime.Now;
+                db.Cuenta_Abono.Add(this);
+                db.SaveChanges();
+                ret = true;
+            }
+            catch (Exception ex)
+            {
 
-                if (Convert.ToInt32(resultado) > 0)
-                    resultado = true;
-                else
-                    resultado = false;
+                throw new Exception(ex.Message);
             }
 
-           
-            return resultado;
-
+            return ret;
         }
-
-        public void Agrega()
-        {
-            
-            db.Cuenta_Abono.Add(this);
-            db.SaveChanges();
-
-        }
-
-
         #endregion
     }
 }

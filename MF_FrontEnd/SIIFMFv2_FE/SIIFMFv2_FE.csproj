@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AbonoController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RespuestaAPIController.cs" />
     <Compile Include="Controllers\RespuestaController.cs" />
@@ -201,6 +202,7 @@
     <Content Include="Views\Respuesta\Details.cshtml" />
     <Content Include="Views\Respuesta\Edit.cshtml" />
     <Content Include="Views\Respuesta\Index.cshtml" />
+    <Content Include="Views\Error\_ErrorPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

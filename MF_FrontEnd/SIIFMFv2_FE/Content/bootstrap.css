@@ -5407,9 +5407,10 @@ a.list-group-item:focus {
 .panel-footerMF {
   padding: 10px 15px;
   background-color: #004F71;
-  border-top: 1px solid #878B8D;
+  border-top: 1px solid #f5f5f5;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  color: yellow;
 }
 
 .panel-footer {

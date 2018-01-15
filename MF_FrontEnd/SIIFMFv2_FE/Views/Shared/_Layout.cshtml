@@ -39,10 +39,16 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer class="panel-footerMF">
-            Derechos reservados &copy;,
-            Más Fondos, S.A. de C.V., Sociedad Distribuidora de Acciones de Sociedades de Inversión,
-            @DateTime.Now.Year
+        <footer class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container">
+                <div class="navbar-header">
+                    <p class="text-center" style="color:white; text-align:center;">
+                        Derechos reservados &copy; @DateTime.Now.Year,
+                        Más Fondos, S.A. de C.V., Sociedad Distribuidora de Acciones de Sociedades de Inversión
+                        
+                    </p>
+                </div>
+            </div>
         </footer>
     </div>
 
