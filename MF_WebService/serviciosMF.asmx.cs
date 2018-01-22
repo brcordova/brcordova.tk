@@ -9,9 +9,13 @@ using System.Xml;
 using System.Xml.Linq;
 using MF_Modelo;
 using NLog;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MF_WebService
 {
+
     /// <summary>
     /// Summary description for serviciosMF
     /// </summary>
@@ -22,7 +26,45 @@ namespace MF_WebService
     [System.Web.Script.Services.ScriptService]
     public class serviciosMF : System.Web.Services.WebService
     {
+
         private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        static string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
+
+        //[WebMethod]
+        //public XDocument recibeAbono(XDocument xmlDoc)
+        //{
+        //    XDocument retorno = new XDocument();
+        //    XDocument xmlRespose = null;
+
+        //    Cuenta_Abono abono = new Cuenta_Abono();
+        //    Cuenta_Abono_Respuesta abonoResponse = new Cuenta_Abono_Respuesta();
+        //    Cuenta_Abono_Conciliacion abonoConciliacion = new Cuenta_Abono_Conciliacion();
+        //    Cuenta_CLABE clabe = new Cuenta_CLABE();
+
+        //    try
+        //    {
+        //        if (xmlDoc != null)
+        //        {
+        //            XElement xml = XElement.Parse(xmlDoc.ToString());
+        //            foreach (var item in xml.DescendantNodes())
+        //            {
+
+        //            }
+        //        }
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        log.Error(ex, "Error Cuenta_Abono/AgregarAbono");
+        //    }
+
+
+
+
+        //    return retorno;
+        //}
 
         /// <summary>
         /// Servicio para recibir los abonos desde Banxico
@@ -30,7 +72,7 @@ namespace MF_WebService
         /// <param name="xmlDoc">XML con los datos del abono</param>
         /// <returns>Respuesta del abono.</returns>
         [WebMethod]
-        public XmlDocument recibeAbono(XmlDocument xmlDoc)
+        public System.Xml.XmlDocument recibeAbono(XmlDocument xmlDoc)
         {
             XmlDocument retorno = new XmlDocument();
             XDocument xmlResp = null;
@@ -55,11 +97,12 @@ namespace MF_WebService
                             item.Element("cuentaOrdenante").Value;
 
                         #region Configuración de la respuesta
+                        string strContratoId = String.Empty;
                         string strCodigoError = "0";
                         int intSts_Abono = 0;
 
                         // Verifico si existe la CLABE en caso positivo 
-                        if ( clabe.existeCLABE(strCLABE))
+                        if (clabe.existeCLABE(strCLABE))
                         {
                             strCodigoError = "0"; // Registro satisfactorio.
                             intSts_Abono = 10;
@@ -152,7 +195,7 @@ namespace MF_WebService
                         abono.Cuenta_Abono_Sts_Abono_Id = intSts_Abono;
 
                         // Agrego al listado
-                        if(abono.Agregar())
+                        if (abono.Agregar())
                             sendAbonos.Add(abono);
 
                         #endregion
@@ -202,6 +245,8 @@ namespace MF_WebService
                         abonoConciliacion.pstrConciliacionPendienteCheque = "";
                         abonoConciliacion.RegistraConciliacion();
                         #endregion
+
+                        
 
                     }
                     #endregion
@@ -286,6 +331,56 @@ namespace MF_WebService
                 return XDocument.Load(nodeReader);
             }
         }
+    }
+
+    public class ProcesaCompra
+    {
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
+        static string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
+
+        #region Propiedades
+        public int IngresoEfec { get; set; }
+        public int Tipo_Momento_Id { get; set; }
+        public int VerifAsig { get; set; }
+        public int Consecutivo { get; set; }
+        public int VerifPerfilCliente { get; set; }
+        #endregion
+
+        #region Constructor
+
+        public ProcesaCompra()
+        {
+            #region obtieneTipoMomento
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(conStr))
+                {
+                    SqlCommand cmd = new SqlCommand(
+                        "SELECT IngresoEfec = Parametros_Promocion_Ingreso_Efectivo, Tipo_Momento_Id FROM Parametros_Promocion WHERE Empresa_Id = '01'", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    //cmd.Parameters.AddWithValue("@Banco_Dsc_Corta", banco_Dsc_Corta);
+                    //cmd.Parameters.AddWithValue("@Banco_Clave_CNBV", banco_Clave_CNBV);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error Banco/Agrega");
+            }
+            #endregion
+        }
+
+        #endregion
+
+        #region Métodos
+
+        #endregion
+
+
+        //public static obtieneDatos
     }
 
 }

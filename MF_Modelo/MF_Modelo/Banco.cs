@@ -12,8 +12,8 @@ namespace MF_Modelo
     public class Banco
     {
         private static readonly Logger log = LogManager.GetCurrentClassLogger();
-
-        static string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
+        private static readonly SPEIContext db = new SPEIContext();
+        private static readonly string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
 
         #region Miembros
         private int _Banco_Id;
@@ -116,7 +116,7 @@ namespace MF_Modelo
         public Banco() { }
         #endregion
 
-        #region Propiedades
+        #region Métodos
 
         // CRUD
         // Create - Read - Update - Delete

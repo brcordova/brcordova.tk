@@ -12,6 +12,7 @@ namespace MF_Modelo
     {
 
         SPEIContext db = new SPEIContext();
+        EstadisticaCA eca = new EstadisticaCA();
 
         #region Miembros
         public int Id { get; set; }
@@ -22,19 +23,19 @@ namespace MF_Modelo
 
         public DateTime Cuenta_Abono_fechaRegistro { get; set; }
 
-        public int? Cuenta_Abono_institucionOrdenante { get; set; }
+        public int Cuenta_Abono_institucionOrdenante { get; set; }
 
-        public int? Cuenta_Abono_institucionBeneficiaria { get; set; }
+        public int Cuenta_Abono_institucionBeneficiaria { get; set; }
 
         [StringLength(30)]
         public string Cuenta_Abono_claveRastreo { get; set; }
 
-        public decimal? Cuenta_Abono_monto { get; set; }
+        public decimal Cuenta_Abono_monto { get; set; }
 
         [StringLength(80)]
         public string Cuenta_Abono_nombreOrdenante { get; set; }
 
-        public int? Cuenta_Abono_tipoCuentaOrdenante { get; set; }
+        public int Cuenta_Abono_tipoCuentaOrdenante { get; set; }
 
         [StringLength(18)]
         public string Cuenta_Abono_cuentaOrdenante { get; set; }
@@ -61,16 +62,16 @@ namespace MF_Modelo
         [StringLength(80)]
         public string Cuenta_Abono_empresa { get; set; }
 
-        public int? Cuenta_Abono_tipoPago { get; set; }
+        public int Cuenta_Abono_tipoPago { get; set; }
 
-        public int? Cuenta_Abono_tipoOperacion { get; set; }
+        public int Cuenta_Abono_tipoOperacion { get; set; }
 
-        public short? Cuenta_Abono_Sts_Conciliacion { get; set; }
+        public short Cuenta_Abono_Sts_Conciliacion { get; set; }
 
         [StringLength(30)]
         public string Cuenta_Abono_claveRastreoDev { get; set; }
 
-        public int? Cuenta_Abono_Sts_Abono_Id { get; set; }
+        public int Cuenta_Abono_Sts_Abono_Id { get; set; }
         #endregion
 
         #region Métodos
@@ -94,6 +95,29 @@ namespace MF_Modelo
 
             return ret;
         }
+
+        public List<EstadisticaCA> DatosEstadisticos()
+        {
+            List<EstadisticaCA> listaECA = eca.listaEstadistica();
+            return listaECA;  
+        }
+
+        public List<Cuenta_Abono> ObtenerAbonos(int? status = 0 ) 
+        {
+            //List<Cuenta_Abono> lstAbonos = new List<Cuenta_Abono>();
+
+            var abonos = (from ca in db.Cuenta_Abono
+                              select ca);
+            if (status > 0)
+            {
+                abonos = (from ca in abonos
+                              where ca.Cuenta_Abono_Sts_Abono_Id == status
+                              select ca);
+            }
+
+            return abonos.ToList();
+        }
+
         #endregion
     }
 }

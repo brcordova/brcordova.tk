@@ -1,165 +1,101 @@
 ﻿@model IEnumerable<MF_Modelo.Cuenta_Abono>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Abonos";
 }
 
-<h2>Index</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<h2>Abonos registrados</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaOperacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionOrdenante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionBeneficiaria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_monto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreOrdenante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaOrdenante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaOrdenante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpOrdenante)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreBeneficiario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaBeneficiario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaBeneficiario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpBeneficiario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_conceptoPago)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_referenciaNumerica)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_empresa)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoPago)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoOperacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Conciliacion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreoDev)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Abono_Id)
-        </th>
-        <th></th>
-    </tr>
+<div class="text-center">
+    <h1 class="page-header">Estadisticas</h1>
+    <div class="row placeholder">
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" style="width: 25%" id="divRegistrado">
+                <span class="sr-only"></span>
+            </div>
+            <div class="progress-bar progress-bar-success" style="width: 25%" id="divActivo">
+                <span class="sr-only"></span>
+            </div>
+            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%" id="divInactivo">
+                <span class="sr-only"> </span>
+            </div>
+            <div class="progress-bar progress-bar-warning" style="width: 25%" id="divRechazado">
+                <span class="sr-only"></span>
+            </div>
+            <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 25%" id="divCancelado">
+                <span class="sr-only"></span>
+            </div>
+            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%" id="divNoDefinido">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
+    <h3 id="h3Filtro">@ViewBag.Filtro</h3>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_fechaOperacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_fechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_institucionOrdenante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_institucionBeneficiaria)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_claveRastreo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_monto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreOrdenante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_tipoCuentaOrdenante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaOrdenante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_rfcCurpOrdenante)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreBeneficiario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_tipoCuentaBeneficiario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaBeneficiario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_rfcCurpBeneficiario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_conceptoPago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_referenciaNumerica)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_empresa)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_tipoPago)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_tipoOperacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Sts_Conciliacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_claveRastreoDev)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cuenta_Abono_Sts_Abono_Id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="dtpFecInicio"> De </label>
+            <input type="text" class="form-control" id="dtpFecInicio" title="Se requiere de una fecha inicial" required placeholder="Fecha inicio" >
+        </div>
+        <div class="form-group">
+            <label for="dtpFecFinal"> a </label>
+            <input type="text" class="form-control" id="dtpFecFinal" title="Se requiere de una fecha inicial" required placeholder="Fecha final">
+        </div>
+        <button type="submit" class="btn btn-default" id="btnFiltrar">Filtrar</button>
+    </form>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>
+                Acción
+            </th>
+            <th>
+                Cliente
+            </th>
+            <th>
+                Cuenta
+            </th>
+            <th>
+                Fecha operación
+            </th>
+            <th>
+                Monto
+            </th>
+            <th>
+                Fecha movimiento
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreOrdenante)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaOrdenante)
+                </td>
+                <td>
+                    @item.Cuenta_Abono_fechaOperacion.ToString("dd/MMM/yyyy")
+                </td>
+                <td>
+                    @String.Format("{0:c}", item.Cuenta_Abono_monto)
+                </td>
+                <td>
+                    @item.Cuenta_Abono_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/appJS/abonos.js")" type="text/javascript"></script>
 }
-
-</table>

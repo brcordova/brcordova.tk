@@ -2,201 +2,372 @@
 
 @{
     ViewBag.Title = "Details";
+    MF_Modelo.Cuenta_Abono_Respuesta caRespuesta = ViewBag.caRespuesta;
 }
 
-<h2>Details</h2>
+<h2>Detalle del abono @Model.Cuenta_Abono_Id</h2>
 
-<div>
-    <h4>Cuenta_Abono</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Id)
-        </dt>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Datos del Abono</h3>
+    </div>
+    <div class="panel-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_Id)
-        </dd>
+        <!-- Datos generales -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos generales</h3>
+            </div>
+            <div class="panel-body">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaOperacion)
-        </dt>
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <p>
+                            Id. Abono <span class="badge">@Model.Cuenta_Abono_Id</span>
+                            Fec. Operación <span class="badge">@Model.Cuenta_Abono_fechaOperacion.ToString("dd/MMM/yyyy")</span>
+                            Fec. Registro <span class="badge">@Model.Cuenta_Abono_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")</span>
+                        </p>
+                    </div>
+                </form>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_fechaOperacion)
-        </dd>
+            </div>
+        </div>
+        <!-- Datos del ordenante -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos del Ordenante</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <p>
+                            Institución <span class="badge">@Model.Cuenta_Abono_institucionOrdenante</span>
+                            Nombre <span class="badge">@Model.Cuenta_Abono_nombreOrdenante</span>
+                        </p>
+                        <p>
+                            Tipo cuenta <span class="badge">@Model.Cuenta_Abono_tipoCuentaOrdenante</span>
+                            Cuenta <span class="badge">@Model.Cuenta_Abono_cuentaOrdenante</span>
+                            R.F.C./CURP <span class="badge">@Model.Cuenta_Abono_rfcCurpOrdenante</span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Datos del beneficiario -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Beneficiario</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <p>
+                            Institución <span class="badge">@Model.Cuenta_Abono_institucionBeneficiaria</span>
+                            Nombre <span class="badge">@Model.Cuenta_Abono_nombreBeneficiario</span>
+                        </p>
+                        <p>
+                            Tipo cuenta <span class="badge">@Model.Cuenta_Abono_tipoCuentaBeneficiario</span>
+                            Cuenta <span class="badge">@Model.Cuenta_Abono_cuentaBeneficiario</span>
+                            R.F.C./CURP <span class="badge">@Model.Cuenta_Abono_rfcCurpBeneficiario</span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Datos del pago -->
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos Pago</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <p>
+                            Clave de rastreo <span class="badge">@Model.Cuenta_Abono_claveRastreo</span>
+                            Clave de rastreo Devolución <span class="badge">@Model.Cuenta_Abono_claveRastreoDev</span>
+                        </p>
+                        <p>
+                            Monto <span class="badge">@string.Format("{0:C}", @Model.Cuenta_Abono_monto)</span>
+                            Concepto <span class="badge">@Model.Cuenta_Abono_conceptoPago</span>
+                            Referencia numérica <span class="badge">@Model.Cuenta_Abono_referenciaNumerica</span>
+                        </p>
+                        <p>
+                            Empresa <span class="badge">@Model.Cuenta_Abono_empresa</span>
+                            Tipo operación <span class="badge">@Model.Cuenta_Abono_tipoOperacion</span>
+                            Tipo de pago <span class="badge">@Model.Cuenta_Abono_tipoPago</span>
+                        </p>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaRegistro)
-        </dt>
+                        @{
+                            switch (Model.Cuenta_Abono_Sts_Abono_Id)
+                            {
+                                case 10:
+                                    <p>
+                                        Estatus <span class="label label-primary">Activo</span>
+                                    </p>
+                                    break;
+                                case 20:
+                                <p>
+                                    Estatus <span class="label label-primary">Activo</span>
+                                </p>
+                                    break;
+                                case 30:
+                                <p>
+                                    Estatus <span class="label label-default">Inactivo</span>
+                                </p>
+                                    break;
+                                case 40:
+                                <p>
+                                    Estatus <span class="label label-warning">Rechazado</span>
+                                </p>
+                                    break;
+                                case 50:
+                                <p>
+                                    Estatus <span class="label label-danger">Cancelado</span>
+                                </p>
+                                    break;
+                            }
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Datos del resultado -->
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Datos de la Respuesta</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <p>
+                            Id. Respuesta <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_Id</span>
+                            Clave <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_clave</span>
+                            Fec. Registro <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")</span>
+                        </p>
+                        <p>
+                            Folio origen <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_folioOrigen</span>
+                            Clave de ratreo de devolución <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_rastreoDevolucion</span>
+                        </p>
+                        <p>
+                            Empresa <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_empresa</span>
+                            Medio de entrega <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_medioEntrega</span>
+                            Tipo de pago <span class="badge">@caRespuesta.Cuenta_Abono_Respuesta_tipoPago</span>
+                        </p>
+                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_fechaRegistro)
-        </dd>
+                    @{
+                        switch (caRespuesta.Cuenta_Abono_Respuesta_codigoError)
+                        {
+                            case 0:
+                                <div class="alert alert-success" role="alert">Sin código de error.</div>
+                                break;
+                            case 1:
+                            <div class="alert alert-danger" role="alert">Cuenta no existente.</div>
+                                break;
+                        }
+                    }
+                </form>
+            </div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionOrdenante)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_institucionOrdenante)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionBeneficiaria)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_institucionBeneficiaria)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_claveRastreo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_monto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_monto)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreOrdenante)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_nombreOrdenante)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaOrdenante)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_tipoCuentaOrdenante)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaOrdenante)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_cuentaOrdenante)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpOrdenante)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_rfcCurpOrdenante)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreBeneficiario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_nombreBeneficiario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaBeneficiario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_tipoCuentaBeneficiario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaBeneficiario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_cuentaBeneficiario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpBeneficiario)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_rfcCurpBeneficiario)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_conceptoPago)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_conceptoPago)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_referenciaNumerica)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_referenciaNumerica)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_empresa)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_empresa)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoPago)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_tipoPago)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoOperacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_tipoOperacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Conciliacion)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_Sts_Conciliacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreoDev)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_claveRastreoDev)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Abono_Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cuenta_Abono_Sts_Abono_Id)
-        </dd>
-
-    </dl>
+    </div>
+    <div class="panel-footer text-center">@Html.ActionLink(" Regresar", "Index", null, new { @class = "btn btn-primary btn-large glyphicon glyphicon-arrow-left " })</div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
+
+@*<div>
+        <h4>Cuenta_Abono</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaOperacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_fechaOperacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_fechaRegistro)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_fechaRegistro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionOrdenante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_institucionOrdenante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_institucionBeneficiaria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_institucionBeneficiaria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_claveRastreo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_monto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_monto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreOrdenante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_nombreOrdenante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaOrdenante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_tipoCuentaOrdenante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaOrdenante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_cuentaOrdenante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpOrdenante)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_rfcCurpOrdenante)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_nombreBeneficiario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_nombreBeneficiario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoCuentaBeneficiario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_tipoCuentaBeneficiario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_cuentaBeneficiario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_cuentaBeneficiario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_rfcCurpBeneficiario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_rfcCurpBeneficiario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_conceptoPago)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_conceptoPago)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_referenciaNumerica)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_referenciaNumerica)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_empresa)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_empresa)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoPago)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_tipoPago)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_tipoOperacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_tipoOperacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Conciliacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_Sts_Conciliacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_claveRastreoDev)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_claveRastreoDev)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cuenta_Abono_Sts_Abono_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cuenta_Abono_Sts_Abono_Id)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

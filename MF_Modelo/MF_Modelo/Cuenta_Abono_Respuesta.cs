@@ -35,7 +35,7 @@ namespace MF_Modelo
         public string Cuenta_Abono_Respuesta_rastreoDevolucion { get; set; }
 
         public DateTime Cuenta_Abono_Respuesta_fechaRegistro { get; set; }
-        #endregion 
+        #endregion
 
         #region Métodos
         public void Agrega()
@@ -49,17 +49,29 @@ namespace MF_Modelo
             }
             catch (Exception ex)
             {
-                
+
                 throw new Exception(ex.Message);
             }
-            
+
         }
 
         public int maximoValor()
         {
-            int idMax = (from car in db.Cuenta_Abono_Respuesta
-                         select car.Cuenta_Abono_Respuesta_Id).Max();
 
+            var datos = db.Cuenta_Abono_Respuesta.Count();
+            
+            int idMax;
+            try
+            {
+                idMax = (from car in db.Cuenta_Abono_Respuesta
+                         select car.Cuenta_Abono_Respuesta_Id).Max();
+            }
+            catch (Exception ex)
+            {
+                idMax = 1;
+                
+            }
+                
             return idMax;
         }
         #endregion

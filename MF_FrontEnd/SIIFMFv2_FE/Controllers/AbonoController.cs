@@ -13,26 +13,78 @@ namespace SIIFMFv2_FE.Controllers
     public class AbonoController : Controller
     {
         private SPEIContext db = new SPEIContext();
+        private Cuenta_Abono abono = new Cuenta_Abono();
 
         // GET: Abono
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.Cuenta_Abono.ToList());
+        //}
+
+        public ActionResult Index(int status = 0)
         {
-            return View(db.Cuenta_Abono.ToList());
+            //string strFechaInicio = Request.Form["dtpFecInicio"].ToString();
+            //string strFechaFinal = Request.Form["dtpFecFinal"].ToString();
+
+            if (Request.QueryString.Count > 0)
+            {
+                string strFechaInicio = Request.QueryString["dtpFecInicio"].ToString();
+                string strFechaFinal = Request.QueryString["dtpFecFinal"].ToString();
+            }
+
+            ViewBag.Filtro = "Todos los registros";
+            switch (status)
+            {
+                case 10:
+                    ViewBag.Filtro = "Abonos registrados";
+                    break;
+                case 20:
+                    ViewBag.Filtro = "Abonos activos";
+                    break;
+                case 30:
+                    ViewBag.Filtro = "Abonos inactivos";
+                    break;
+                case 40:
+                    ViewBag.Filtro = "Abonos rechazados";
+                    break;
+                case 50:
+                    ViewBag.Filtro = "Abonos cancelados";
+                    break;
+            }
+
+            if (status == 0)
+                return View(abono.ObtenerAbonos());
+            else
+                return View(abono.ObtenerAbonos(status));
+
+            //return View(db.Cuenta_Abono.ToList());
         }
 
         public JsonResult Listado()
         {
+
             return Json(db.Cuenta_Abono.ToList(),JsonRequestBehavior.AllowGet);
         }
 
         // GET: Abono/Details/5
         public ActionResult Details(int? id)
         {
+            int Id = 0;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            else
+                Id = (int)id;
+
             Cuenta_Abono cuenta_Abono = db.Cuenta_Abono.Find(id);
+
+            //Cuenta_Abono_Respuesta caRespuesta = new Cuenta_Abono_Respuesta();
+            Cuenta_Abono_Respuesta caRespuesta = db.Cuenta_Abono_Respuesta
+                    .Where(car => car.Cuenta_Abono_Respuesta_clave == cuenta_Abono.Id)
+                    .FirstOrDefault();
+            ViewBag.caRespuesta = caRespuesta;
+
             if (cuenta_Abono == null)
             {
                 return HttpNotFound();
@@ -128,5 +180,15 @@ namespace SIIFMFv2_FE.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [HttpGet]
+        public JsonResult ObtenerEstadisticas()
+        {
+            Cuenta_Abono ca = new Cuenta_Abono();
+            List<EstadisticaCA> lista = ca.DatosEstadisticos();
+
+            return Json(lista, JsonRequestBehavior.AllowGet);
+        }   
+
     }
 }
