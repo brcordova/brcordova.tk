@@ -5,16 +5,25 @@ namespace MF_Modelo
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Data.SqlClient;
     using System.Linq;
+    using NLog;
 
     public partial class Cuenta_Abono
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
 
-        SPEIContext db = new SPEIContext();
-        EstadisticaCA eca = new EstadisticaCA();
+        private static readonly SPEIContext db = new SPEIContext();
+        private static EstadisticaCA eca = new EstadisticaCA();
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
 
-        #region Miembros
+        #region Constructor
+        public Cuenta_Abono()
+        {
+            Cuenta_Abono_Respuesta = new HashSet<Cuenta_Abono_Respuesta>();
+        }
+        #endregion
+
+        #region Propiedades
         public int Id { get; set; }
 
         public int Cuenta_Abono_Id { get; set; }
@@ -30,12 +39,12 @@ namespace MF_Modelo
         [StringLength(30)]
         public string Cuenta_Abono_claveRastreo { get; set; }
 
-        public decimal Cuenta_Abono_monto { get; set; }
+        public decimal? Cuenta_Abono_monto { get; set; }
 
         [StringLength(80)]
         public string Cuenta_Abono_nombreOrdenante { get; set; }
 
-        public int Cuenta_Abono_tipoCuentaOrdenante { get; set; }
+        public int? Cuenta_Abono_tipoCuentaOrdenante { get; set; }
 
         [StringLength(18)]
         public string Cuenta_Abono_cuentaOrdenante { get; set; }
@@ -62,17 +71,21 @@ namespace MF_Modelo
         [StringLength(80)]
         public string Cuenta_Abono_empresa { get; set; }
 
-        public int Cuenta_Abono_tipoPago { get; set; }
+        public int? Cuenta_Abono_tipoPago { get; set; }
 
-        public int Cuenta_Abono_tipoOperacion { get; set; }
+        public int? Cuenta_Abono_tipoOperacion { get; set; }
 
-        public short Cuenta_Abono_Sts_Conciliacion { get; set; }
+        public short? Cuenta_Abono_Sts_Conciliacion { get; set; }
 
         [StringLength(30)]
         public string Cuenta_Abono_claveRastreoDev { get; set; }
 
-        public int Cuenta_Abono_Sts_Abono_Id { get; set; }
+        public int? Cuenta_Abono_Sts_Abono_Id { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cuenta_Abono_Respuesta> Cuenta_Abono_Respuesta { get; set; }
         #endregion
+
 
         #region Métodos
 
@@ -99,25 +112,28 @@ namespace MF_Modelo
         public List<EstadisticaCA> DatosEstadisticos()
         {
             List<EstadisticaCA> listaECA = eca.listaEstadistica();
-            return listaECA;  
+            return listaECA;
         }
 
-        public List<Cuenta_Abono> ObtenerAbonos(int? status = 0 ) 
+        public List<Cuenta_Abono> ObtenerAbonos(int? status = 0)
         {
             //List<Cuenta_Abono> lstAbonos = new List<Cuenta_Abono>();
 
             var abonos = (from ca in db.Cuenta_Abono
-                              select ca);
+                          select ca);
             if (status > 0)
             {
                 abonos = (from ca in abonos
-                              where ca.Cuenta_Abono_Sts_Abono_Id == status
-                              select ca);
+                          where ca.Cuenta_Abono_Sts_Abono_Id == status
+                          select ca);
             }
 
             return abonos.ToList();
         }
 
         #endregion
+
+
+
     }
 }

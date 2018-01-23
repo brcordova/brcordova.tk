@@ -72,7 +72,8 @@ namespace MF_WebService
         /// <param name="xmlDoc">XML con los datos del abono</param>
         /// <returns>Respuesta del abono.</returns>
         [WebMethod]
-        public System.Xml.XmlDocument recibeAbono(XmlDocument xmlDoc)
+        //public System.Xml.XmlDocument  recibeAbono(XmlDocument xmlDoc)
+        public XmlDocument  recibeAbono(XmlDocument xmlDoc)
         {
             XmlDocument retorno = new XmlDocument();
             XDocument xmlResp = null;
@@ -272,8 +273,8 @@ namespace MF_WebService
                 log.Error(ex, "Error Cuenta_Abono/AgregarAbono");
             }
 
-            XmlDocument xmlResponse = DocumentExtensions.ToXmlDocument(xmlResp);
-            return retorno;
+            return xmlResp.ToXmlDocument();
+
         }
 
         [WebMethod]
@@ -302,7 +303,7 @@ namespace MF_WebService
                     bancoNombre = item.Element("institucion").Attribute("nombre").Value == null ? "" :
                         item.Element("institucion").Attribute("nombre").Value.ToUpper();
 
-                    banco.Agrega(bancoClave, bancoNombre);
+                    banco.Actualiza(bancoClave, bancoNombre);
                 }
 
             }

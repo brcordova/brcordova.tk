@@ -1,0 +1,146 @@
+﻿@model MF_Modelo.Banco
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Banco</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Dsc)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Dsc)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Dsc_Corta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Dsc_Corta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Clave_CNBV)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Clave_CNBV)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Opera_Digito)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Opera_Digito)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Clave_Financiera)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Clave_Financiera)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Cuenta_Contable)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Cuenta_Contable)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Habilitado)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Habilitado)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Permite_ModCtaCientes)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Permite_ModCtaCientes)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Certifica_CuentaClientes)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Certifica_CuentaClientes)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_GeneraLayout_CertificacionCta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_GeneraLayout_CertificacionCta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_ConfirmaLayout_CertificacionCta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_ConfirmaLayout_CertificacionCta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Longitud_Cuenta)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Longitud_Cuenta)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Maneja_Domiciliacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Maneja_Domiciliacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_RequiereAltaBaja_Domiciliacion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_RequiereAltaBaja_Domiciliacion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banco_Clave_Banxico)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banco_Clave_Banxico)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Banco_Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

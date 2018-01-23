@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     //alert('Cargo');
-
+    $(".alert").alert('close')
     $.ajax({
         type: 'GET',
         url: '/Abono/ObtenerEstadisticas',
@@ -15,12 +15,12 @@
             var NoDefinido; // 60
 
             $.each(data, function (index, value) {
-                if (value.intCveTipoEstatus == 10) { Registrado = value.decPcteRegistro.toFixed(2) }
-                if (value.intCveTipoEstatus == 20) { Activo = value.decPcteRegistro.toFixed(2) }
-                if (value.intCveTipoEstatus == 30) { Inactivo = value.decPcteRegistro.toFixed(2) }
-                if (value.intCveTipoEstatus == 40) { Rechazado = value.decPcteRegistro.toFixed(2) }
-                if (value.intCveTipoEstatus == 50) { Cancelado = value.decPcteRegistro.toFixed(2) }
-                if (value.intCveTipoEstatus == 60) { NoDefinido = value.decPcteRegistro.toFixed(2) }
+                if (value.intCveTipoEstatus == 10) { Registrado = value.decPcteRegistro.toFixed(2); }
+                if (value.intCveTipoEstatus == 20) { Activo = value.decPcteRegistro.toFixed(2); }
+                if (value.intCveTipoEstatus == 30) { Inactivo = value.decPcteRegistro.toFixed(2); }
+                if (value.intCveTipoEstatus == 40) { Rechazado = value.decPcteRegistro.toFixed(2); }
+                if (value.intCveTipoEstatus == 50) { Cancelado = value.decPcteRegistro.toFixed(2); }
+                if (value.intCveTipoEstatus == 60) { NoDefinido = value.decPcteRegistro.toFixed(2); }
             });
             //$("#divActivo").width(Activo);
             $("#divRegistrado").innerWidth(Registrado.toString() + '%');
@@ -38,8 +38,8 @@
             $("#divCancelado").innerWidth(Cancelado.toString() + '%');
             $("#divCancelado").text('Cancelado: ' + Cancelado.toString() + '%');
 
-            $("#divNoDefinido").innerWidth(Cancelado.toString() + '%');
-            $("#divNoDefinido").text('No definido: ' + Cancelado.toString() + '%');
+            $("#divNoDefinido").innerWidth(NoDefinido.toString() + '%');
+            $("#divNoDefinido").text('ND: ' + NoDefinido.toString() + '%');
 
             //$("#test-circle").circliful({
             //    animation: 1,
@@ -96,17 +96,19 @@
 
     $('#btnFiltrar').click(function (e) {
         //e.preventDefault();
-        
+
         var dtmInicio = $('#dtpFecInicio').val();
         var dtmFinal = $('#dtpFecFinal').val();
-        if (dtmInicio === undefined) {
-            alert('F. Inicio: ' + dtmInicio + ' F. Final: ' + dtmFinal);
-           // window.location.href = "Abono?dtpFecInicio=" + dtmInicio + "&dtpFecFinal=" + dtmFinal;
+
+        if ($.isEmptyObject(dtmInicio) && $.isEmptyObject(dtmFinal)) {
+            alert('No paso');
         }
-        
-
-        //var data = [{ "status": "0", "fIni": dtmInicio, "fFin" : dtmFinal }];
-
+        else {
+            
+            var urlDestino = "Abono?dtpFecInicio=" + dtmInicio + "&dtpFecFinal=" + dtmFinal;
+            alert(urlDestino);
+            window.location.href = urlDestino;
+        }
     });
 
     $('#divRegistrado').click(function (e) {

@@ -1,0 +1,126 @@
+﻿@model IEnumerable<MF_Modelo.Banco>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Nombre del banco @*@Html.DisplayNameFor(model => model.Banco_Dsc)*@
+            </th>
+            <th>
+                Descripción corta @*@Html.DisplayNameFor(model => model.Banco_Dsc_Corta)*@
+            </th>
+            <th>
+                Clave C.N.B.V. @*@Html.DisplayNameFor(model => model.Banco_Clave_CNBV)*@
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Banco_Opera_Digito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Clave_Financiera)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Cuenta_Contable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Habilitado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Permite_ModCtaCientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Certifica_CuentaClientes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_GeneraLayout_CertificacionCta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_ConfirmaLayout_CertificacionCta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Longitud_Cuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_Maneja_Domiciliacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banco_RequiereAltaBaja_Domiciliacion)
+            </th>*@
+            <th>
+                Clave BANXICO
+                @*@Html.DisplayNameFor(model => model.Banco_Clave_Banxico)*@
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Dsc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Dsc_Corta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Clave_CNBV)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Banco_Opera_Digito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Clave_Financiera)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Cuenta_Contable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Habilitado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Permite_ModCtaCientes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Certifica_CuentaClientes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_GeneraLayout_CertificacionCta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_ConfirmaLayout_CertificacionCta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Longitud_Cuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Maneja_Domiciliacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_RequiereAltaBaja_Domiciliacion)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Banco_Clave_Banxico)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Banco_Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Banco_Id }) @*|
+                @Html.ActionLink("Delete", "Delete", new { id=item.Banco_Id })*@
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

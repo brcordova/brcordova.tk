@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="SPEIContext-Web.config Connection String" description="SPEIContext Connection String used in web.config by the application to access the database." defaultValue="data source=fondos-dbdev;initial catalog=SPEI;persist security info=True;user id=rostos;password=Masfondos20#;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\brostos\\Documents\\BROC\\Proyectos\\SPEI\\SIIFMFv2\\MF_FrontEnd\\SIIFMFv2_FE\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='SPEIContext']/@connectionString" />
-  </parameter>
-</parameters>

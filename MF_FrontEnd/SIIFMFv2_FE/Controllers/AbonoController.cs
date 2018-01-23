@@ -26,7 +26,7 @@ namespace SIIFMFv2_FE.Controllers
             //string strFechaInicio = Request.Form["dtpFecInicio"].ToString();
             //string strFechaFinal = Request.Form["dtpFecFinal"].ToString();
 
-            if (Request.QueryString.Count > 0)
+            if (Request.QueryString.Count >= 2)
             {
                 string strFechaInicio = Request.QueryString["dtpFecInicio"].ToString();
                 string strFechaFinal = Request.QueryString["dtpFecFinal"].ToString();
@@ -77,12 +77,16 @@ namespace SIIFMFv2_FE.Controllers
             else
                 Id = (int)id;
 
-            Cuenta_Abono cuenta_Abono = db.Cuenta_Abono.Find(id);
+            Cuenta_Abono cuenta_Abono = (from ca in db.Cuenta_Abono
+                                             where ca.Id == Id
+                                             select ca ).FirstOrDefault();
 
-            //Cuenta_Abono_Respuesta caRespuesta = new Cuenta_Abono_Respuesta();
-            Cuenta_Abono_Respuesta caRespuesta = db.Cuenta_Abono_Respuesta
-                    .Where(car => car.Cuenta_Abono_Respuesta_clave == cuenta_Abono.Id)
-                    .FirstOrDefault();
+            Cuenta_Abono_Respuesta caRespuesta = db.Cuenta_Abono_Respuesta.FirstOrDefault(z => z.Cuenta_Abono_Respuesta_clave == Id);
+
+            //(from car in db.Cuenta_Abono_Respuesta
+                // where car.Cuenta_Abono_Respuesta_clave == Id
+                // select car).FirstOrDefault();
+
             ViewBag.caRespuesta = caRespuesta;
 
             if (cuenta_Abono == null)
