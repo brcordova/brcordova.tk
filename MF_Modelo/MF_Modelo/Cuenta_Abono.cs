@@ -84,6 +84,7 @@ namespace MF_Modelo
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cuenta_Abono_Respuesta> Cuenta_Abono_Respuesta { get; set; }
+        
         #endregion
 
 
@@ -129,6 +130,93 @@ namespace MF_Modelo
             }
 
             return abonos.ToList();
+        }
+
+        public AnexGRIDResponde Listar(AnexGRIDprop agrid)
+        {
+            try
+            {
+                using (var ctx = new SPEIContext())
+                {
+                    agrid.Inicializar();
+
+                    //var query = ctx.Empleado.Include(x => x.Profesion)
+                    //                        .Where(x => x.id > 0);
+
+                    var query = ctx.Cuenta_Abono
+                        .Where(ca => ca.Id > 0);
+
+                    // Ordenar 
+                    if (agrid.columna == "Id") query = agrid.columna_orden == "DESC"
+                                                       ? query.OrderByDescending(x => x.Id)
+                                                       : query.OrderBy(x => x.Id);
+
+                    if (agrid.columna == "Cuenta_Abono_nombreOrdenante") query = agrid.columna_orden == "DESC"
+                                                       ? query.OrderByDescending(x => x.Cuenta_Abono_nombreOrdenante)
+                                                       : query.OrderBy(x => x.Cuenta_Abono_nombreOrdenante);
+
+                    if (agrid.columna == "Cuenta_Abono_fechaOperacion") query = agrid.columna_orden == "DESC"
+                                                       ? query.OrderByDescending(x => x.Cuenta_Abono_fechaOperacion)
+                                                       : query.OrderBy(x => x.Cuenta_Abono_fechaOperacion);
+
+                    if (agrid.columna == "Cuenta_Abono_fechaRegistro") query = agrid.columna_orden == "DESC"
+                                                       ? query.OrderByDescending(x => x.Cuenta_Abono_fechaRegistro)
+                                                       : query.OrderBy(x => x.Cuenta_Abono_fechaRegistro);
+
+                    // Filtrar
+                    foreach (var f in agrid.filtros)
+                    {
+                        if (f.columna == "Cuenta_Abono_nombreOrdenante")
+                            query = query.Where(x => x.Cuenta_Abono_nombreOrdenante.Contains(f.valor));
+
+                        //if (f.columna == "Correo")
+                        //    query = query.Where(x => x.Correo.StartsWith(f.valor));
+
+                        if (f.columna == "Cuenta_Abono_fechaRegistro" && f.valor != "")
+                        {
+                            string pattern = @"^[0-9A-Z]([-.\w]*[0-9A-Z])*$";
+                            var fecSol = f.valor.ToString().Trim();
+                            DateTime fecSolVal = DateTime.Parse(fecSol);
+                            query = query.Where(x => x.Cuenta_Abono_fechaRegistro.ToString().Contains(f.valor));
+                        }
+                    }
+
+                    var abonos = query.Skip(agrid.pagina)
+                                         .Take(agrid.limite)
+                                         .ToList();
+
+                    agrid.SetData(
+                            from a in abonos
+                            select new
+                            {
+                                a.Id,
+                                a.Cuenta_Abono_nombreOrdenante,
+                                a.Cuenta_Abono_cuentaOrdenante,
+                                a.Cuenta_Abono_fechaOperacion,
+                                a.Cuenta_Abono_monto,
+                                a.Cuenta_Abono_fechaRegistro,
+                                a.Cuenta_Abono_conceptoPago
+                            }
+                        ,
+                        query.Count()
+                    );
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return agrid.responde();
+        }
+
+        public Cuenta_Abono ObtenerAbonoId(int intId)
+        {
+            Cuenta_Abono cuentaAbono = (from ca in db.Cuenta_Abono
+                                        where ca.Cuenta_Abono_Id == intId
+                                        select ca).FirstOrDefault();
+
+            return cuentaAbono;
         }
 
         #endregion

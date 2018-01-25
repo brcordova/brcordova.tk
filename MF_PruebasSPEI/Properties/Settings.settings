@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MF_PruebasSPEI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MF_PruebasSPEI_swMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx</Value>
+    </Setting>
+    <Setting Name="MF_PruebasSPEI_lhMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:62157/serviciosMF.asmx</Value>
+    </Setting>
+    <Setting Name="MF_PruebasSPEI_exMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://200.57.68.54/ServiciosMF/ServiciosMF.asmx</Value>
+    </Setting>
+    <Setting Name="pruebasSPEI_exMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://200.57.68.54/ServiciosMF/ServiciosMF.asmx</Value>
+    </Setting>
+    <Setting Name="pruebasSPEI_swMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx</Value>
+    </Setting>
+    <Setting Name="pruebasSPEI_lhMF_serviciosMF" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:62157/serviciosMF.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

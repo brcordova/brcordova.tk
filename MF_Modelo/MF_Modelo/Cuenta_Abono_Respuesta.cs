@@ -41,6 +41,7 @@ namespace MF_Modelo
 
         [ForeignKey("Cuenta_Abono_Respuesta_clave")]
         public virtual Cuenta_Abono Cuenta_Abono { get; set; }
+
         #endregion
 
         #region Métodos

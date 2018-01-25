@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anexgrid.cs" />
+    <Compile Include="AnexGRIDprop.cs" />
     <Compile Include="Banco.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="CLABE.cs" />

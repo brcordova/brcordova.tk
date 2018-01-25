@@ -1,0 +1,17 @@
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\NLog.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\NLog.bak.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\pruebasSPEI.exe.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\pruebasSPEI.exe
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\pruebasSPEI.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\NLog.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\SIIFV2_DAL.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\EntityFramework.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\SIIFV2_DAL.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\NLog.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Debug\EntityFramework.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.csprojResolveAssemblyReference.cache
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.frmCargarXML.resources
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.Properties.Resources.resources
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.csproj.GenerateResource.Cache
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.exe
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\obj\Debug\pruebasSPEI.pdb

@@ -30,50 +30,13 @@ namespace MF_WebService
         private static readonly Logger log = LogManager.GetCurrentClassLogger();
         static string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
 
-        //[WebMethod]
-        //public XDocument recibeAbono(XDocument xmlDoc)
-        //{
-        //    XDocument retorno = new XDocument();
-        //    XDocument xmlRespose = null;
-
-        //    Cuenta_Abono abono = new Cuenta_Abono();
-        //    Cuenta_Abono_Respuesta abonoResponse = new Cuenta_Abono_Respuesta();
-        //    Cuenta_Abono_Conciliacion abonoConciliacion = new Cuenta_Abono_Conciliacion();
-        //    Cuenta_CLABE clabe = new Cuenta_CLABE();
-
-        //    try
-        //    {
-        //        if (xmlDoc != null)
-        //        {
-        //            XElement xml = XElement.Parse(xmlDoc.ToString());
-        //            foreach (var item in xml.DescendantNodes())
-        //            {
-
-        //            }
-        //        }
-
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-
-        //        log.Error(ex, "Error Cuenta_Abono/AgregarAbono");
-        //    }
-
-
-
-
-        //    return retorno;
-        //}
-
         /// <summary>
         /// Servicio para recibir los abonos desde Banxico
         /// </summary>
         /// <param name="xmlDoc">XML con los datos del abono</param>
         /// <returns>Respuesta del abono.</returns>
         [WebMethod]
-        //public System.Xml.XmlDocument  recibeAbono(XmlDocument xmlDoc)
-        public XmlDocument  recibeAbono(XmlDocument xmlDoc)
+        public XmlDocument recibeAbono(XmlDocument xmlDoc)
         {
             XmlDocument retorno = new XmlDocument();
             XDocument xmlResp = null;
@@ -247,7 +210,7 @@ namespace MF_WebService
                         abonoConciliacion.RegistraConciliacion();
                         #endregion
 
-                        
+
 
                     }
                     #endregion
@@ -277,36 +240,166 @@ namespace MF_WebService
 
         }
 
+        /// <summary>
+        /// Procesa el cambio de estado de una orden.
+        /// </summary>
+        /// <param name="xmlDocument">Documento XML con los datos requeridos</param>
+        /// <returns>Se devuelve el documento XML de recepción con los campos de respuesta idResponse y Response</returns>
         [WebMethod]
-        public void cambioEstado(int Id, string empresa, string folioOrigen, int estado, string causaDevolucion)
+        public XmlDocument cambioEstado(XmlDocument xmlDocument)
         {
+            #region Variables
+            XDocument xmlResp = new XDocument();
+            string strId = String.Empty;
+            string strEmpresa = String.Empty;
+            string strFolioOrigen = String.Empty;
+            string strEstado = String.Empty;
+            string strCausaDevolucion = String.Empty;
+            int intId = 0;
+            #endregion
+            try
+            {
+                #region Proceso
+                if (xmlDocument != null)
+                {
+                    #region Cargamos los datos del cambio de estado
+                    XElement xmlDoc = XElement.Load(new XmlNodeReader(xmlDocument));
+                    IEnumerable<XElement> cambios = xmlDoc.Elements();
 
+                    foreach (var item in cambios)
+                    {
+                        strId = item.Element("Id").Value == null ? "" :
+                            item.Element("Id").Value;
+                        intId = Convert.ToInt32(strId);
+                        strEmpresa = item.Element("empresa").Value == null ? "" :
+                           item.Element("empresa").Value;
+                        strFolioOrigen = item.Element("folioOrigen").Value == null ? "" :
+                           item.Element("folioOrigen").Value;
+                        strEstado = item.Element("estado").Value == null ? "" :
+                           item.Element("estado").Value;
+                        strCausaDevolucion = item.Element("causaDevolucion").Value == null ? "" :
+                           item.Element("causaDevolucion").Value;
+                    }
+                    #endregion
+
+                    #region Obtenemos los datos del abono
+                    var i = 0;
+                    Cuenta_Abono ca = new Cuenta_Abono();
+                    Cuenta_Abono cuentaAbono = new Cuenta_Abono();
+                    cuentaAbono = ca.ObtenerAbonoId(intId);
+
+                    Sts_Abono st = new Sts_Abono();
+                    Sts_Abono estatus = null;
+
+
+                    //cuentaAbono = cuentaAbono.ObtenerAbonoId(intId);
+                    #endregion
+
+                    #region Genero la respuesta
+                    // Enviamos el estatus de la orden.
+                    if (cuentaAbono != null)
+                    {
+                        estatus = st.DevuelveId((int)cuentaAbono.Cuenta_Abono_Sts_Abono_Id);
+
+                        #region Se devuelve el estado
+                        xmlResp = new XDocument(new XDeclaration("1.0", "utf-8", "yes"),
+                            new XElement("cambioEstados",
+                            new XElement("cambioEstado",
+                            new XElement("Id", strId),
+                            new XElement("empresa", "MAS_FONDOS"),
+                            new XElement("folioOrigen", strFolioOrigen),
+                            new XElement("estado", strEstado),
+                            new XElement("causaDevolucion", ""),
+                            new XElement("idResponse", cuentaAbono.Cuenta_Abono_Sts_Abono_Id),
+                            new XElement("response", estatus.Sts_Abono_Dsc_Corta.Trim()))));
+                        #endregion
+                    }
+                    // Se informa que no existe el folio.
+                    else
+                    {
+                        #region No existe folio
+                        xmlResp = new XDocument(new XDeclaration("1.0", "utf-8", "yes"),
+                            new XElement("cambioEstados",
+                            new XElement("cambioEstado",
+                            new XElement("Id", strId),
+                            new XElement("empresa", "MAS_FONDOS"),
+                            new XElement("folioOrigen", strFolioOrigen),
+                            new XElement("estado", strEstado),
+                            new XElement("causaDevolucion", ""),
+                            new XElement("idResponse", "20"),
+                            new XElement("response", "Folio Inexistente"))));
+                        #endregion
+                    }
+                    #endregion
+                }
+                else
+                {
+                    #region Respuesta de documento nulo
+                    xmlResp = new XDocument(new XDeclaration("1.0", "utf-8", "yes"),
+                            new XElement("cambioEstados",
+                            new XElement("cambioEstado",
+                            new XElement("Id", 0),
+                            new XElement("empresa", "MAS_FONDOS"),
+                            new XElement("folioOrigen", "0"),
+                            new XElement("estado", "0"),
+                            new XElement("causaDevolucion", "Sin documento"),
+                            new XElement("idResponse", "10"),
+                            new XElement("response", "Sin documento"))));
+                    #endregion
+                }
+                #endregion
+            }
+
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error en cambioEstado()");
+            }
+
+            return xmlResp.ToXmlDocument();
         }
 
+
         [WebMethod]
-        public void recibeInstituciones(XmlDocument xmlInstituciones)
+        public string recibeInstituciones(XmlDocument xmlInstituciones)
         {
-            string bancoClave = "";
-            string bancoNombre = "";
-            Banco banco = new Banco();
+            string strRes = "En proceso...";
 
-
-            if (xmlInstituciones != null)
+            try
             {
-                XElement xmlDocto = XElement.Load(new XmlNodeReader(xmlInstituciones));
-                IEnumerable<XElement> xmlDatos = xmlDocto.Elements();
+                string bancoClave = "";
+                string bancoNombre = "";
+                Banco banco = new Banco();
 
-                foreach (var item in xmlDatos)
+
+                if (xmlInstituciones != null)
                 {
-                    bancoClave = item.Element("institucion").Attribute("clave").Value == null ? "" :
-                        item.Element("institucion").Attribute("clave").Value.ToUpper();
-                    bancoNombre = item.Element("institucion").Attribute("nombre").Value == null ? "" :
-                        item.Element("institucion").Attribute("nombre").Value.ToUpper();
+                    XElement xmlDocto = XElement.Load(new XmlNodeReader(xmlInstituciones));
+                    IEnumerable<XElement> xmlDatos = xmlDocto.Elements();
 
-                    banco.Actualiza(bancoClave, bancoNombre);
+                    foreach (XElement item in xmlDatos)
+                    {
+                        bancoClave = item.Attribute("clave").Value == null ? "" :
+                            item.Attribute("clave").Value;
+                        bancoNombre = item.Attribute("nombre").Value == null ? "" :
+                            item.Attribute("nombre").Value;
+
+                        banco.Actualiza(bancoClave, bancoNombre);
+                    }
+                }
+                else
+                {
+                    strRes = "Documento vacio.";
                 }
 
+                strRes = "Actualización correcta.";
             }
+            catch (Exception ex)
+            {
+                //log.Error(ex, "Error en ServiciosMF/recibeInstituciones");
+                strRes = "Error: " + ex.Message;
+            }
+
+            return strRes;
         }
 
     }

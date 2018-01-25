@@ -103,10 +103,31 @@
         }
 
         public void Actualiza(string strBancoClave, string strBancoNombre) 
-        { 
-            var banco = (from b in db.Banco
-                             where b.Banco_Clave_Banxico== Convert.ToInt32( strBancoClave)
+        {
+
+            int intCveBanco = Convert.ToInt32(strBancoClave);
+
+            try
+            {
+                var banco = (from b in db.Banco
+                             where b.Banco_Clave_Banxico == intCveBanco
                              select b);
+
+                if (banco.Count() == 0)
+                {
+                    // Insertar el banco
+                }
+                else
+                { 
+                    // Modificar ?
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error en Banco/Actualiza");
+            }
+
+            
         }
         #endregion
 

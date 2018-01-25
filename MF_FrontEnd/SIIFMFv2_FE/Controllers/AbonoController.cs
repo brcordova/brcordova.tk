@@ -60,9 +60,14 @@ namespace SIIFMFv2_FE.Controllers
             //return View(db.Cuenta_Abono.ToList());
         }
 
+        public JsonResult Listar(AnexGRIDprop agrid)
+        {
+            return Json(abono.Listar(agrid), JsonRequestBehavior.AllowGet);
+        }
+
+
         public JsonResult Listado()
         {
-
             return Json(db.Cuenta_Abono.ToList(),JsonRequestBehavior.AllowGet);
         }
 

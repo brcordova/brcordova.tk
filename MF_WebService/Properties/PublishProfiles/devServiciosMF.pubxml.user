@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/08/2018 11:49:04</publishTime>
     </File>
     <File Include="bin/MF_Modelo.dll">
-      <publishTime>01/23/2018 11:10:03</publishTime>
+      <publishTime>01/25/2018 12:58:38</publishTime>
     </File>
     <File Include="bin/MF_WebService.dll">
-      <publishTime>01/23/2018 11:10:05</publishTime>
+      <publishTime>01/25/2018 12:58:38</publishTime>
     </File>
     <File Include="bin/NLog.config">
       <publishTime>01/11/2018 17:11:03</publishTime>

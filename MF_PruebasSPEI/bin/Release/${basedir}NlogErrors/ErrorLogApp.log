@@ -1,0 +1,1068 @@
+2018-01-24 15:58:31.9729 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2018-01-24 15:58:32.2700 Debug Start auto loading, location: C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release
+2018-01-24 15:58:32.2700 Debug Auto loading done
+2018-01-24 15:58:32.2800 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2800 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:58:32.2980 Debug Setting 'UppercaseLayoutRendererWrapper.uppercase' to 'true'
+2018-01-24 15:58:32.2980 Trace Wrapping LevelLayoutRenderer with UppercaseLayoutRendererWrapper
+2018-01-24 15:58:32.2980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2980 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.2980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2980 Trace Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:58:32.2980 Trace  Scanning SimpleLayout ''''
+2018-01-24 15:58:32.2980 Trace   Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.2980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2980 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.2980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2980 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.2980 Debug Setting 'FileTarget.fileName' to '${basedir}NlogErrors\ErrorLogFile.log'
+2018-01-24 15:58:32.2980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.2980 Trace Scanning BaseDirLayoutRenderer 'Layout Renderer: ${basedir}'
+2018-01-24 15:58:32.3150 Debug Setting 'FileTarget.name' to 'logFile'
+2018-01-24 15:58:32.3150 Info Adding target File Target[logFile]
+2018-01-24 15:58:32.3150 Debug Registering target logFile: NLog.Targets.FileTarget
+2018-01-24 15:58:32.3150 Debug Setting 'DatabaseTarget.name' to 'database'
+2018-01-24 15:58:32.3150 Debug Setting 'DatabaseTarget.connectionStringName' to 'SPEIContext'
+2018-01-24 15:58:32.3150 Debug Setting 'DatabaseTarget.commandText' to 'INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)'
+2018-01-24 15:58:32.3150 Debug Setting 'DatabaseParameterInfo.name' to '@MachineName'
+2018-01-24 15:58:32.3150 Debug Setting 'DatabaseParameterInfo.layout' to '${machinename}'
+2018-01-24 15:58:32.3270 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.3270 Trace Scanning MachineNameLayoutRenderer 'Layout Renderer: ${machinename}'
+2018-01-24 15:58:32.3500 Debug Setting 'DatabaseParameterInfo.name' to '@SiteName'
+2018-01-24 15:58:32.3500 Debug Setting 'DatabaseParameterInfo.layout' to '${iis-site-name}'
+2018-01-24 15:58:32.3740 Error Error parsing layout iis-site-name will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'iis-site-name'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.4310 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4310 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.name' to '@Logged'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.layout' to '${date}'
+2018-01-24 15:58:32.4310 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4310 Trace Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.name' to '@Level'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2018-01-24 15:58:32.4310 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4310 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.name' to '@Username'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.layout' to '${identity}'
+2018-01-24 15:58:32.4310 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4310 Trace Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.name' to '@Message'
+2018-01-24 15:58:32.4310 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2018-01-24 15:58:32.4360 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4360 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.name' to '@Logger'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2018-01-24 15:58:32.4360 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4360 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.name' to '@Properties'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.layout' to '${all-event-properties:separator=|}'
+2018-01-24 15:58:32.4360 Debug Setting 'AllEventPropertiesLayoutRenderer.separator' to '|'
+2018-01-24 15:58:32.4360 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.4360 Trace Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.name' to '@ServerName'
+2018-01-24 15:58:32.4360 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=SERVER_NAME}'
+2018-01-24 15:58:32.5111 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5111 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5111 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5111 Debug Setting 'DatabaseParameterInfo.name' to '@Port'
+2018-01-24 15:58:32.5111 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=SERVER_PORT}'
+2018-01-24 15:58:32.5251 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5251 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5251 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5251 Debug Setting 'DatabaseParameterInfo.name' to '@Url'
+2018-01-24 15:58:32.5251 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=HTTP_URL}'
+2018-01-24 15:58:32.5371 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5371 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5371 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5371 Debug Setting 'DatabaseParameterInfo.name' to '@Https'
+2018-01-24 15:58:32.5371 Debug Setting 'DatabaseParameterInfo.layout' to '${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}'
+2018-01-24 15:58:32.5561 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5561 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5561 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5561 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5561 Trace Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.5561 Trace  Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:58:32.5561 Trace   Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.5561 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.5611 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5611 Trace   Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.5611 Trace    Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.5611 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5611 Trace  Scanning SimpleLayout ''1''
+2018-01-24 15:58:32.5611 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5611 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5611 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5611 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5611 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5611 Trace Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.5611 Trace  Scanning SimpleLayout ''0''
+2018-01-24 15:58:32.5611 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5611 Trace  Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:58:32.5771 Trace   Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.5771 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.5771 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5771 Trace   Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.5771 Trace    Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.5771 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5771 Debug Setting 'DatabaseParameterInfo.name' to '@ServerAddress'
+2018-01-24 15:58:32.5771 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=LOCAL_ADDR}'
+2018-01-24 15:58:32.5771 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.5771 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.5771 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.5771 Debug Setting 'DatabaseParameterInfo.name' to '@RemoteAddress'
+2018-01-24 15:58:32.5771 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}'
+2018-01-24 15:58:32.6001 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.6001 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.6001 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6121 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:58:32.6121 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.6121 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.name' to '@CallSite'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite}'
+2018-01-24 15:58:32.6121 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.6121 Trace Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.name' to '@CustomerId'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.layout' to '${mdc:item=CustomerId}'
+2018-01-24 15:58:32.6121 Debug Setting 'MdcLayoutRenderer.item' to 'CustomerId'
+2018-01-24 15:58:32.6121 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.6121 Trace Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.name' to '@Exception'
+2018-01-24 15:58:32.6121 Debug Setting 'DatabaseParameterInfo.layout' to '${exception:tostring'
+2018-01-24 15:58:32.6321 Debug Setting 'ExceptionLayoutRenderer.Format' to 'tostring'
+2018-01-24 15:58:32.6321 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:58:32.6321 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:58:32.6321 Info Adding target Database Target[database]
+2018-01-24 15:58:32.6321 Debug Registering target database: NLog.Targets.DatabaseTarget
+2018-01-24 15:58:32.6321 Trace ParseRulesElement
+2018-01-24 15:58:32.6321 Info Configured from an XML element in C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release\NLog.config...
+2018-01-24 15:58:32.6391 Debug Unused target checking is started... Rule Count: 2, Target Count: 2
+2018-01-24 15:58:32.6391 Debug Unused target checking is completed. Total Rule Count: 2, Total Target Count: 2, Unused Target Count: 0
+2018-01-24 15:58:32.6391 Debug --- NLog configuration dump ---
+2018-01-24 15:58:32.6391 Debug Targets:
+2018-01-24 15:58:32.6391 Debug File Target[logFile]
+2018-01-24 15:58:32.6391 Debug Database Target[database]
+2018-01-24 15:58:32.6391 Debug Rules:
+2018-01-24 15:58:32.6391 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] appendTo: [ logFile ]
+2018-01-24 15:58:32.6391 Debug logNamePattern: (:All) levels: [ Warn Error Fatal ] appendTo: [ database ]
+2018-01-24 15:58:32.6391 Debug --- End of NLog configuration dump ---
+2018-01-24 15:58:32.6811 Debug Watching path 'C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release' filter 'NLog.config' for changes.
+2018-01-24 15:58:32.6811 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.6811 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] appendTo: [ logFile ]'
+2018-01-24 15:58:32.6811 Trace  Scanning FileTarget 'File Target[logFile]'
+2018-01-24 15:58:32.6811 Trace   Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:58:32.6811 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6811 Trace   Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:58:32.6811 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:58:32.6811 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6811 Trace    Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:58:32.6811 Trace     Scanning SimpleLayout ''''
+2018-01-24 15:58:32.6861 Trace      Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.6861 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.6861 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.6861 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Warn Error Fatal ] appendTo: [ database ]'
+2018-01-24 15:58:32.6861 Trace  Scanning DatabaseTarget 'Database Target[database]'
+2018-01-24 15:58:32.6861 Trace   Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:58:32.6861 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning SimpleLayout ''.''
+2018-01-24 15:58:32.6861 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:58:32.6861 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:58:32.6861 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${date}''
+2018-01-24 15:58:32.6861 Trace     Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${level}''
+2018-01-24 15:58:32.6861 Trace     Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${identity}''
+2018-01-24 15:58:32.6861 Trace     Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${message}''
+2018-01-24 15:58:32.6861 Trace     Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${logger}''
+2018-01-24 15:58:32.6861 Trace     Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:58:32.6861 Trace     Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:58:32.6861 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:58:32.6861 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:58:32.6861 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.6861 Trace    Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:58:32.6861 Trace     Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.6861 Trace      Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:58:32.6861 Trace       Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.6861 Trace        Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.6861 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace       Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.6861 Trace        Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.6861 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace      Scanning SimpleLayout ''1''
+2018-01-24 15:58:32.6861 Trace       Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.6861 Trace     Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.6861 Trace      Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:58:32.6861 Trace       Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7021 Trace        Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7021 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7021 Trace       Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.7021 Trace        Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7021 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7021 Trace      Scanning SimpleLayout ''0''
+2018-01-24 15:58:32.7021 Trace       Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7021 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7021 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:58:32.7021 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7021 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7021 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:58:32.7021 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7021 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7021 Trace    Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:58:32.7021 Trace     Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:58:32.7021 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7021 Trace    Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:58:32.7021 Trace     Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:58:32.7021 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7021 Trace    Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:58:32.7021 Trace     Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:58:32.7021 Info Found 90 configuration items
+2018-01-24 15:58:32.7021 Trace Initializing Layout Renderer: ${exception}
+2018-01-24 15:58:32.7021 Trace Initializing '${exception:tostring'
+2018-01-24 15:58:32.7021 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7021 Trace Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:58:32.7021 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:58:32.7021 Trace Initializing Layout Renderer: ${mdc}
+2018-01-24 15:58:32.7021 Trace Initializing '${mdc:item=CustomerId}'
+2018-01-24 15:58:32.7021 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7021 Trace Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:58:32.7021 Trace  Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:58:32.7021 Trace Initializing Layout Renderer: ${callsite}
+2018-01-24 15:58:32.7021 Trace Initializing '${callsite}'
+2018-01-24 15:58:32.7021 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7021 Trace Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:58:32.7021 Trace  Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:58:32.7021 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7021 Trace Initializing '${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}'
+2018-01-24 15:58:32.7021 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=LOCAL_ADDR}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '0'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''0''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing 'on'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=HTTPS}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${when}
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '1'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''1''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing 'on'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=HTTPS}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${when}
+2018-01-24 15:58:32.7171 Trace Initializing '${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:58:32.7171 Trace  Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.7171 Trace   Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:58:32.7171 Trace    Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace     Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace    Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.7171 Trace     Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7171 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace   Scanning SimpleLayout ''1''
+2018-01-24 15:58:32.7171 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace  Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.7171 Trace   Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:58:32.7171 Trace    Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace     Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7171 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace    Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.7171 Trace     Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7171 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace   Scanning SimpleLayout ''0''
+2018-01-24 15:58:32.7171 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=HTTP_URL}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=SERVER_PORT}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7171 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7171 Trace Initializing '${aspnet-request:serverVariable=SERVER_NAME}'
+2018-01-24 15:58:32.7171 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7171 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:58:32.7171 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${all-event-properties}
+2018-01-24 15:58:32.7331 Trace Initializing '${all-event-properties:separator=|}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:58:32.7331 Trace  Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${logger}
+2018-01-24 15:58:32.7331 Trace Initializing '${logger}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${logger}''
+2018-01-24 15:58:32.7331 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${message}
+2018-01-24 15:58:32.7331 Trace Initializing '${message}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${message}''
+2018-01-24 15:58:32.7331 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${identity}
+2018-01-24 15:58:32.7331 Trace Initializing '${identity}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${identity}''
+2018-01-24 15:58:32.7331 Trace  Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${level}
+2018-01-24 15:58:32.7331 Trace Initializing '${level}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${level}''
+2018-01-24 15:58:32.7331 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${date}
+2018-01-24 15:58:32.7331 Trace Initializing '${date}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${date}''
+2018-01-24 15:58:32.7331 Trace  Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7331 Trace Initializing '${iis-site-name}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:58:32.7331 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7331 Trace Initializing '${machinename}'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:58:32.7331 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7331 Trace Initializing '.'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''.''
+2018-01-24 15:58:32.7331 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7331 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.7331 Trace Initializing 'INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)'
+2018-01-24 15:58:32.7331 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.7331 Trace Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:58:32.7331 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7331 Trace Initializing Database Target[database]
+2018-01-24 15:58:32.7521 Trace FindReachableObject<NLog.Layouts.Layout>:
+2018-01-24 15:58:32.7521 Trace Scanning DatabaseTarget 'Database Target[database]'
+2018-01-24 15:58:32.7521 Trace  Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:58:32.7521 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning SimpleLayout ''.''
+2018-01-24 15:58:32.7521 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:58:32.7521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:58:32.7521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${date}''
+2018-01-24 15:58:32.7521 Trace    Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${level}''
+2018-01-24 15:58:32.7521 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${identity}''
+2018-01-24 15:58:32.7521 Trace    Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${message}''
+2018-01-24 15:58:32.7521 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${logger}''
+2018-01-24 15:58:32.7521 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:58:32.7521 Trace    Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:58:32.7521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:58:32.7521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:58:32.7521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7521 Trace   Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:58:32.7521 Trace    Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.7521 Trace     Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:58:32.7521 Trace      Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7521 Trace       Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7521 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace      Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.7521 Trace       Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7521 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace     Scanning SimpleLayout ''1''
+2018-01-24 15:58:32.7521 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7521 Trace    Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:58:32.7521 Trace     Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:58:32.7521 Trace      Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7521 Trace       Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:58:32.7641 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7641 Trace      Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:58:32.7641 Trace       Scanning SimpleLayout ''on''
+2018-01-24 15:58:32.7641 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7641 Trace     Scanning SimpleLayout ''0''
+2018-01-24 15:58:32.7641 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7641 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7641 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:58:32.7641 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7641 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7641 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:58:32.7641 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.7641 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7641 Trace   Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:58:32.7641 Trace    Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:58:32.7641 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7641 Trace   Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:58:32.7641 Trace    Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:58:32.7641 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:58:32.7641 Trace   Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:58:32.7641 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:58:32.7641 Trace Database Target[database] has 25 layouts
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${message}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${logger}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${level}
+2018-01-24 15:58:32.8782 Trace Initializing ''
+2018-01-24 15:58:32.8782 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.8782 Trace Scanning SimpleLayout ''''
+2018-01-24 15:58:32.8782 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${uppercase}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${longdate}
+2018-01-24 15:58:32.8782 Trace Initializing '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2018-01-24 15:58:32.8782 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.8782 Trace Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:58:32.8782 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:58:32.8782 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace  Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:58:32.8782 Trace   Scanning SimpleLayout ''''
+2018-01-24 15:58:32.8782 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.8782 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.8782 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.8782 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:58:32.8782 Trace Initializing '${basedir}NlogErrors\ErrorLogFile.log'
+2018-01-24 15:58:32.8782 Trace FindReachableObject<System.Object>:
+2018-01-24 15:58:32.8782 Trace Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:58:32.8782 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace Initializing File Target[logFile]
+2018-01-24 15:58:32.8782 Trace FindReachableObject<NLog.Layouts.Layout>:
+2018-01-24 15:58:32.8782 Trace Scanning FileTarget 'File Target[logFile]'
+2018-01-24 15:58:32.8782 Trace  Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:58:32.8782 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace  Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:58:32.8782 Trace   Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:58:32.8782 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace   Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:58:32.8782 Trace    Scanning SimpleLayout ''''
+2018-01-24 15:58:32.8782 Trace     Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:58:32.8782 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace   Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:58:32.8782 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:58:32.8782 Trace   Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:58:32.8782 Trace File Target[logFile] has 3 layouts
+2018-01-24 15:58:32.8912 Info Configuration initialized.
+2018-01-24 15:58:32.8912 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.4.5791. Product version: 4.4.12.
+2018-01-24 15:58:32.8912 Debug Targets for pruebasSPEI.frmCargarXML by level:
+2018-01-24 15:58:32.8912 Debug Trace => logFile
+2018-01-24 15:58:32.8912 Debug Debug => logFile
+2018-01-24 15:58:32.8912 Debug Info => logFile
+2018-01-24 15:58:32.8912 Debug Warn => logFile database
+2018-01-24 15:58:32.8912 Debug Error => logFile database
+2018-01-24 15:58:32.8912 Debug Fatal => logFile database
+2018-01-24 15:59:33.1342 Debug ScanAssembly('NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2018-01-24 15:59:33.1773 Debug Start auto loading, location: C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release
+2018-01-24 15:59:33.1773 Debug Auto loading done
+2018-01-24 15:59:33.1863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1863 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:59:33.1863 Debug Setting 'UppercaseLayoutRendererWrapper.uppercase' to 'true'
+2018-01-24 15:59:33.1863 Trace Wrapping LevelLayoutRenderer with UppercaseLayoutRendererWrapper
+2018-01-24 15:59:33.1863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1863 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.1863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1863 Trace Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:59:33.1863 Trace  Scanning SimpleLayout ''''
+2018-01-24 15:59:33.1863 Trace   Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.1863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1863 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.1863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1863 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.1993 Debug Setting 'FileTarget.fileName' to '${basedir}NlogErrors\ErrorLogFile.log'
+2018-01-24 15:59:33.1993 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1993 Trace Scanning BaseDirLayoutRenderer 'Layout Renderer: ${basedir}'
+2018-01-24 15:59:33.1993 Debug Setting 'FileTarget.name' to 'logFile'
+2018-01-24 15:59:33.1993 Info Adding target File Target[logFile]
+2018-01-24 15:59:33.1993 Debug Registering target logFile: NLog.Targets.FileTarget
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseTarget.name' to 'database'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseTarget.connectionStringName' to 'SPEIContext'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseTarget.commandText' to 'INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseParameterInfo.name' to '@MachineName'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseParameterInfo.layout' to '${machinename}'
+2018-01-24 15:59:33.1993 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.1993 Trace Scanning MachineNameLayoutRenderer 'Layout Renderer: ${machinename}'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseParameterInfo.name' to '@SiteName'
+2018-01-24 15:59:33.1993 Debug Setting 'DatabaseParameterInfo.layout' to '${iis-site-name}'
+2018-01-24 15:59:33.2333 Error Error parsing layout iis-site-name will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'iis-site-name'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.2333 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2333 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.2333 Debug Setting 'DatabaseParameterInfo.name' to '@Logged'
+2018-01-24 15:59:33.2333 Debug Setting 'DatabaseParameterInfo.layout' to '${date}'
+2018-01-24 15:59:33.2333 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@Level'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${level}'
+2018-01-24 15:59:33.2453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@Username'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${identity}'
+2018-01-24 15:59:33.2453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@Message'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${message}'
+2018-01-24 15:59:33.2453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@Logger'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${logger}'
+2018-01-24 15:59:33.2453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@Properties'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${all-event-properties:separator=|}'
+2018-01-24 15:59:33.2453 Debug Setting 'AllEventPropertiesLayoutRenderer.separator' to '|'
+2018-01-24 15:59:33.2453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.2453 Trace Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.name' to '@ServerName'
+2018-01-24 15:59:33.2453 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=SERVER_NAME}'
+2018-01-24 15:59:33.3223 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3233 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3233 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3233 Debug Setting 'DatabaseParameterInfo.name' to '@Port'
+2018-01-24 15:59:33.3233 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=SERVER_PORT}'
+2018-01-24 15:59:33.3233 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3233 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3233 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3233 Debug Setting 'DatabaseParameterInfo.name' to '@Url'
+2018-01-24 15:59:33.3233 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=HTTP_URL}'
+2018-01-24 15:59:33.3453 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3453 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3453 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3453 Debug Setting 'DatabaseParameterInfo.name' to '@Https'
+2018-01-24 15:59:33.3453 Debug Setting 'DatabaseParameterInfo.layout' to '${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}'
+2018-01-24 15:59:33.3643 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3643 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3643 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3643 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3643 Trace Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.3643 Trace  Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:59:33.3643 Trace   Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.3643 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.3643 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3693 Trace   Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.3693 Trace    Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.3693 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3693 Trace  Scanning SimpleLayout ''1''
+2018-01-24 15:59:33.3693 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3693 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3693 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3693 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3693 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3693 Trace Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.3693 Trace  Scanning SimpleLayout ''0''
+2018-01-24 15:59:33.3693 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3693 Trace  Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:59:33.3693 Trace   Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.3693 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.3693 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3853 Trace   Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.3853 Trace    Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.3853 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3853 Debug Setting 'DatabaseParameterInfo.name' to '@ServerAddress'
+2018-01-24 15:59:33.3853 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=LOCAL_ADDR}'
+2018-01-24 15:59:33.3853 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.3853 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.3853 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.3853 Debug Setting 'DatabaseParameterInfo.name' to '@RemoteAddress'
+2018-01-24 15:59:33.3853 Debug Setting 'DatabaseParameterInfo.layout' to '${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}'
+2018-01-24 15:59:33.4073 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.4073 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.4073 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4193 Error Error parsing layout aspnet-request will be ignored. Exception: System.ArgumentException: LayoutRenderer cannot be found: 'aspnet-request'. Is NLog.Web not included?
+   en NLog.Config.Factory`2.CreateInstance(String name)
+   en NLog.Layouts.LayoutParser.ParseLayoutRenderer(ConfigurationItemFactory configurationItemFactory, SimpleStringReader sr)
+2018-01-24 15:59:33.4193 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.4193 Trace Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.name' to '@CallSite'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.layout' to '${callsite}'
+2018-01-24 15:59:33.4193 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.4193 Trace Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.name' to '@CustomerId'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.layout' to '${mdc:item=CustomerId}'
+2018-01-24 15:59:33.4193 Debug Setting 'MdcLayoutRenderer.item' to 'CustomerId'
+2018-01-24 15:59:33.4193 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.4193 Trace Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.name' to '@Exception'
+2018-01-24 15:59:33.4193 Debug Setting 'DatabaseParameterInfo.layout' to '${exception:tostring'
+2018-01-24 15:59:33.4333 Debug Setting 'ExceptionLayoutRenderer.Format' to 'tostring'
+2018-01-24 15:59:33.4333 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2018-01-24 15:59:33.4333 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:59:33.4333 Info Adding target Database Target[database]
+2018-01-24 15:59:33.4333 Debug Registering target database: NLog.Targets.DatabaseTarget
+2018-01-24 15:59:33.4333 Trace ParseRulesElement
+2018-01-24 15:59:33.4333 Info Configured from an XML element in C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release\NLog.config...
+2018-01-24 15:59:33.4333 Debug Unused target checking is started... Rule Count: 2, Target Count: 2
+2018-01-24 15:59:33.4333 Debug Unused target checking is completed. Total Rule Count: 2, Total Target Count: 2, Unused Target Count: 0
+2018-01-24 15:59:33.4333 Debug --- NLog configuration dump ---
+2018-01-24 15:59:33.4333 Debug Targets:
+2018-01-24 15:59:33.4333 Debug File Target[logFile]
+2018-01-24 15:59:33.4333 Debug Database Target[database]
+2018-01-24 15:59:33.4333 Debug Rules:
+2018-01-24 15:59:33.4333 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] appendTo: [ logFile ]
+2018-01-24 15:59:33.4333 Debug logNamePattern: (:All) levels: [ Warn Error Fatal ] appendTo: [ database ]
+2018-01-24 15:59:33.4333 Debug --- End of NLog configuration dump ---
+2018-01-24 15:59:33.4503 Debug Watching path 'C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFv2\MF_SIIFv2\SIIFV2_DAL\pruebasSPEI\bin\Release' filter 'NLog.config' for changes.
+2018-01-24 15:59:33.4503 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4503 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] appendTo: [ logFile ]'
+2018-01-24 15:59:33.4503 Trace  Scanning FileTarget 'File Target[logFile]'
+2018-01-24 15:59:33.4503 Trace   Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:59:33.4503 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4503 Trace   Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:59:33.4503 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:59:33.4503 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4503 Trace    Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:59:33.4503 Trace     Scanning SimpleLayout ''''
+2018-01-24 15:59:33.4503 Trace      Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.4503 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4503 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.4503 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4503 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.4503 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Warn Error Fatal ] appendTo: [ database ]'
+2018-01-24 15:59:33.4503 Trace  Scanning DatabaseTarget 'Database Target[database]'
+2018-01-24 15:59:33.4763 Trace   Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:59:33.4763 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4763 Trace   Scanning SimpleLayout ''.''
+2018-01-24 15:59:33.4763 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4763 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4763 Trace    Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:59:33.4763 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${date}''
+2018-01-24 15:59:33.4793 Trace     Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${level}''
+2018-01-24 15:59:33.4793 Trace     Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${identity}''
+2018-01-24 15:59:33.4793 Trace     Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${message}''
+2018-01-24 15:59:33.4793 Trace     Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${logger}''
+2018-01-24 15:59:33.4793 Trace     Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:59:33.4793 Trace     Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:59:33.4793 Trace     Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.4793 Trace      Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:59:33.4793 Trace       Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.4793 Trace        Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.4793 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace       Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.4793 Trace        Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.4793 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace      Scanning SimpleLayout ''1''
+2018-01-24 15:59:33.4793 Trace       Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace     Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.4793 Trace      Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:59:33.4793 Trace       Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.4793 Trace        Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.4793 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace       Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.4793 Trace        Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.4793 Trace         Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace      Scanning SimpleLayout ''0''
+2018-01-24 15:59:33.4793 Trace       Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:59:33.4793 Trace     Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:59:33.4793 Trace     Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:59:33.4793 Trace     Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:59:33.4793 Trace   Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.4793 Trace    Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:59:33.4793 Trace     Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:59:33.4943 Info Found 90 configuration items
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${exception}
+2018-01-24 15:59:33.4943 Trace Initializing '${exception:tostring'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:59:33.4943 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${mdc}
+2018-01-24 15:59:33.4943 Trace Initializing '${mdc:item=CustomerId}'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:59:33.4943 Trace  Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${callsite}
+2018-01-24 15:59:33.4943 Trace Initializing '${callsite}'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:59:33.4943 Trace  Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing '${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing '${aspnet-request:serverVariable=LOCAL_ADDR}'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing '0'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''0''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing 'on'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing '${aspnet-request:serverVariable=HTTPS}'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${when}
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.4943 Trace Initializing '1'
+2018-01-24 15:59:33.4943 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.4943 Trace Scanning SimpleLayout ''1''
+2018-01-24 15:59:33.4943 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.4943 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5104 Trace Initializing 'on'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.5104 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5104 Trace Initializing '${aspnet-request:serverVariable=HTTPS}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5104 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${when}
+2018-01-24 15:59:33.5104 Trace Initializing '${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:59:33.5104 Trace  Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.5104 Trace   Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:59:33.5104 Trace    Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5104 Trace     Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5104 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace    Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.5104 Trace     Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.5104 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace   Scanning SimpleLayout ''1''
+2018-01-24 15:59:33.5104 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace  Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.5104 Trace   Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:59:33.5104 Trace    Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5104 Trace     Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5104 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace    Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.5104 Trace     Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.5104 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace   Scanning SimpleLayout ''0''
+2018-01-24 15:59:33.5104 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5104 Trace Initializing '${aspnet-request:serverVariable=HTTP_URL}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:59:33.5104 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5104 Trace Initializing '${aspnet-request:serverVariable=SERVER_PORT}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:59:33.5104 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5104 Trace Initializing '${aspnet-request:serverVariable=SERVER_NAME}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:59:33.5104 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${all-event-properties}
+2018-01-24 15:59:33.5104 Trace Initializing '${all-event-properties:separator=|}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:59:33.5104 Trace  Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${logger}
+2018-01-24 15:59:33.5104 Trace Initializing '${logger}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${logger}''
+2018-01-24 15:59:33.5104 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.5104 Trace Initializing Layout Renderer: ${message}
+2018-01-24 15:59:33.5104 Trace Initializing '${message}'
+2018-01-24 15:59:33.5104 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5104 Trace Scanning SimpleLayout ''${message}''
+2018-01-24 15:59:33.5254 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${identity}
+2018-01-24 15:59:33.5254 Trace Initializing '${identity}'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''${identity}''
+2018-01-24 15:59:33.5254 Trace  Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${level}
+2018-01-24 15:59:33.5254 Trace Initializing '${level}'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''${level}''
+2018-01-24 15:59:33.5254 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${date}
+2018-01-24 15:59:33.5254 Trace Initializing '${date}'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''${date}''
+2018-01-24 15:59:33.5254 Trace  Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5254 Trace Initializing '${iis-site-name}'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:59:33.5254 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5254 Trace Initializing '${machinename}'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:59:33.5254 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5254 Trace Initializing '.'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''.''
+2018-01-24 15:59:33.5254 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5254 Trace Initializing 'INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)'
+2018-01-24 15:59:33.5254 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5254 Trace Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:59:33.5254 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace Initializing Database Target[database]
+2018-01-24 15:59:33.5254 Trace FindReachableObject<NLog.Layouts.Layout>:
+2018-01-24 15:59:33.5254 Trace Scanning DatabaseTarget 'Database Target[database]'
+2018-01-24 15:59:33.5254 Trace  Scanning SimpleLayout ''INSERT INTO [dbo].[Bitacora]       ([MachineName],[SiteName],[Logged],[Level],[UserName],[Message]        ,[Logger],[Properties],[ServerName],[Port],[Url],[Https],[ServerAddress]        ,[RemoteAddress],[Callsite],[CustomerId],[Exception])      VALUES      (@machineName, @siteName, @logged, @level, @userName, @message,      @logger, @properties, @serverName, @port, @url, @https, @serverAddress,      @remoteAddress, @callSite, @CustomerId, @exception)''
+2018-01-24 15:59:33.5254 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace  Scanning SimpleLayout ''.''
+2018-01-24 15:59:33.5254 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5254 Trace   Scanning SimpleLayout ''${machinename}''
+2018-01-24 15:59:33.5254 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5254 Trace   Scanning SimpleLayout ''${iis-site-name}''
+2018-01-24 15:59:33.5254 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5254 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5254 Trace   Scanning SimpleLayout ''${date}''
+2018-01-24 15:59:33.5254 Trace    Scanning DateLayoutRenderer 'Layout Renderer: ${date}'
+2018-01-24 15:59:33.5254 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5254 Trace   Scanning SimpleLayout ''${level}''
+2018-01-24 15:59:33.5414 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${identity}''
+2018-01-24 15:59:33.5414 Trace    Scanning IdentityLayoutRenderer 'Layout Renderer: ${identity}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${message}''
+2018-01-24 15:59:33.5414 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${logger}''
+2018-01-24 15:59:33.5414 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${all-event-properties:separator=|}''
+2018-01-24 15:59:33.5414 Trace    Scanning AllEventPropertiesLayoutRenderer 'Layout Renderer: ${all-event-properties}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_NAME}''
+2018-01-24 15:59:33.5414 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=SERVER_PORT}''
+2018-01-24 15:59:33.5414 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTP_URL}''
+2018-01-24 15:59:33.5414 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${when:inner=1:when='${aspnet-request:serverVariable=HTTPS}' == 'on'}${when:inner=0:when='${aspnet-request:serverVariable=HTTPS}' != 'on'}''
+2018-01-24 15:59:33.5414 Trace    Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.5414 Trace     Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' == 'on')'
+2018-01-24 15:59:33.5414 Trace      Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5414 Trace       Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5414 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace      Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.5414 Trace       Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.5414 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace     Scanning SimpleLayout ''1''
+2018-01-24 15:59:33.5414 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace    Scanning WhenLayoutRendererWrapper 'Layout Renderer: ${when}'
+2018-01-24 15:59:33.5414 Trace     Scanning ConditionRelationalExpression '('${aspnet-request:serverVariable=HTTPS}' != 'on')'
+2018-01-24 15:59:33.5414 Trace      Scanning ConditionLayoutExpression ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5414 Trace       Scanning SimpleLayout ''${aspnet-request:serverVariable=HTTPS}''
+2018-01-24 15:59:33.5414 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace      Scanning ConditionLayoutExpression ''on''
+2018-01-24 15:59:33.5414 Trace       Scanning SimpleLayout ''on''
+2018-01-24 15:59:33.5414 Trace        Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace     Scanning SimpleLayout ''0''
+2018-01-24 15:59:33.5414 Trace      Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=LOCAL_ADDR}''
+2018-01-24 15:59:33.5414 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${aspnet-request:serverVariable=REMOTE_ADDR}:${aspnet-request:serverVariable=REMOTE_PORT}''
+2018-01-24 15:59:33.5414 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${callsite}''
+2018-01-24 15:59:33.5414 Trace    Scanning CallSiteLayoutRenderer 'Layout Renderer: ${callsite}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${mdc:item=CustomerId}''
+2018-01-24 15:59:33.5414 Trace    Scanning MdcLayoutRenderer 'Layout Renderer: ${mdc}'
+2018-01-24 15:59:33.5414 Trace  Scanning DatabaseParameterInfo 'NLog.Targets.DatabaseParameterInfo'
+2018-01-24 15:59:33.5414 Trace   Scanning SimpleLayout ''${exception:tostring''
+2018-01-24 15:59:33.5414 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2018-01-24 15:59:33.5414 Trace Database Target[database] has 25 layouts
+2018-01-24 15:59:33.5674 Trace Initializing Layout Renderer: ${message}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${logger}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${level}
+2018-01-24 15:59:33.5754 Trace Initializing ''
+2018-01-24 15:59:33.5754 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5754 Trace Scanning SimpleLayout ''''
+2018-01-24 15:59:33.5754 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${uppercase}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${longdate}
+2018-01-24 15:59:33.5754 Trace Initializing '${longdate}|${level:uppercase=true}|${logger}|${message}'
+2018-01-24 15:59:33.5754 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5754 Trace Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:59:33.5754 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:59:33.5754 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace  Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:59:33.5754 Trace   Scanning SimpleLayout ''''
+2018-01-24 15:59:33.5754 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.5754 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.5754 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.5754 Trace Initializing Layout Renderer: ${literal}
+2018-01-24 15:59:33.5754 Trace Initializing '${basedir}NlogErrors\ErrorLogFile.log'
+2018-01-24 15:59:33.5754 Trace FindReachableObject<System.Object>:
+2018-01-24 15:59:33.5754 Trace Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:59:33.5754 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace Initializing File Target[logFile]
+2018-01-24 15:59:33.5754 Trace FindReachableObject<NLog.Layouts.Layout>:
+2018-01-24 15:59:33.5754 Trace Scanning FileTarget 'File Target[logFile]'
+2018-01-24 15:59:33.5754 Trace  Scanning SimpleLayout ''${basedir}NlogErrors\ErrorLogFile.log''
+2018-01-24 15:59:33.5754 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace  Scanning SimpleLayout ''${longdate}|${level:uppercase=true}|${logger}|${message}''
+2018-01-24 15:59:33.5754 Trace   Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2018-01-24 15:59:33.5754 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace   Scanning UppercaseLayoutRendererWrapper 'Layout Renderer: ${uppercase}'
+2018-01-24 15:59:33.5754 Trace    Scanning SimpleLayout ''''
+2018-01-24 15:59:33.5754 Trace     Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2018-01-24 15:59:33.5754 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace   Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${logger}'
+2018-01-24 15:59:33.5754 Trace   Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2018-01-24 15:59:33.5754 Trace   Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2018-01-24 15:59:33.5754 Trace File Target[logFile] has 3 layouts
+2018-01-24 15:59:33.5884 Info Configuration initialized.
+2018-01-24 15:59:33.5884 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.4.5791. Product version: 4.4.12.
+2018-01-24 15:59:33.5884 Debug Targets for pruebasSPEI.frmCargarXML by level:
+2018-01-24 15:59:33.5884 Debug Trace => logFile
+2018-01-24 15:59:33.5884 Debug Debug => logFile
+2018-01-24 15:59:33.5884 Debug Info => logFile
+2018-01-24 15:59:33.5884 Debug Warn => logFile database
+2018-01-24 15:59:33.5884 Debug Error => logFile database
+2018-01-24 15:59:33.5884 Debug Fatal => logFile database

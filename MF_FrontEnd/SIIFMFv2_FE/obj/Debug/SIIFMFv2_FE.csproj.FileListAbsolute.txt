@@ -1,3 +1,7 @@
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\NLog.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.dll.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.pdb
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\Antlr3.Runtime.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\EntityFramework.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\EntityFramework.SqlServer.dll
@@ -35,7 +39,3 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\obj\Debug\SIIFMFv2_FE.csprojResolveAssemblyReference.cache
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\obj\Debug\SIIFMFv2_FE.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\obj\Debug\SIIFMFv2_FE.pdb
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\NLog.config
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.dll.config
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.dll
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\SIIFMFv2_FE.pdb

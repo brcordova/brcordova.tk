@@ -3,10 +3,8 @@
 @{
     ViewBag.Title = "Abonos";
 }
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <h2>Abonos registrados</h2>
-
 <div class="text-center">
     <h1 class="page-header">Estadisticas</h1>
     <div class="row placeholder">
@@ -31,30 +29,11 @@
             </div>
         </div>
     </div>
-    <h3 id="h3Filtro">@ViewBag.Filtro</h3>
-
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="dtpFecInicio"> De </label>
-            <input type="text" class="form-control" id="dtpFecInicio" title="Se requiere de una fecha inicial" required placeholder="Fecha inicio" >
-        </div>
-        <div class="form-group">
-            <label for="dtpFecFinal"> a </label>
-            <input type="text" class="form-control" id="dtpFecFinal" title="Se requiere de una fecha inicial" required placeholder="Fecha final">
-        </div>
-        <button type="submit" class="btn btn-primary" data-loading-text="Procesando..." id="btnFiltrar">Filtrar</button>
-
-
-        <div class="alert alert-danger alert-dismissable fade in" id="divErrorFecha">
-            <button type="button" class="close" data-dismiss="alert" >&times;</button>
-            <strong>¡Cuidado!</strong> Debes de seleccionar la fecha de inicio..
-        </div>
-
-
-    </form>
+    @*<h3 id="h3Filtro">@ViewBag.Filtro</h3>*@
 </div>
 
-<div class="table-responsive">
+<div id="list"></div>
+@*<div class="table-responsive">
     <table class="table table-striped">
         <tr>
             <th>
@@ -101,7 +80,7 @@
             </tr>
         }
     </table>
-</div>
+</div>*@
 
 
 @section scripts {
