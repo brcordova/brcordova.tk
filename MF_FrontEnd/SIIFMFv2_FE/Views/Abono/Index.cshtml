@@ -5,82 +5,97 @@
 }
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <h2>Abonos registrados</h2>
-<div class="text-center">
-    <h1 class="page-header">Estadisticas</h1>
-    <div class="row placeholder">
-        <div class="progress">
-            <div class="progress-bar progress-bar-info" style="width: 25%" id="divRegistrado">
-                <span class="sr-only"></span>
+<div class="container-fluid text-center">
+    <div class="row">
+        <div class="col-md-2">Recibido</div>
+        <div class="col-md-2">Registrado SIIF</div>
+        <div class="col-md-2">Match OrdenCL</div>
+        <div class="col-md-2">REG SIIF NA</div>
+        <div class="col-md-2">Error Reg. SIIF</div>
+        <div class="col-md-2">No definido</div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/azul48.png" alt="Abono recibido correctamente." /> </div>
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/naranja48.png" alt="Abono registrado SIIF" /></div>
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/verde48.png" alt="Abono match orden cliente" /></div>
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/verde_2_48.png" alt="Abono registro SIIF No Aplicado" /></div>
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/rojo48.png" alt="Abono sin registro SIIF" /></div>
+        <div class="col-md-2"><img class="img-responsive" src="~/Content/img/gris48.png" alt="Estado sin definir" /></div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        @*<div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="contenido text-right">Filtrado por fechas</div>
+        </div>*@
+        <div class="col-xs-6 col-md-4">
+            <div class="contenido">
+                <input type="text" id="dtpFecInicio" required placeholder="Desde" class="form-control" />
             </div>
-            <div class="progress-bar progress-bar-success" style="width: 25%" id="divActivo">
-                <span class="sr-only"></span>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="contenido">
+                <input type="text" id="dtpFecFinal" required placeholder="Hasta" class="form-control" />
             </div>
-            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%" id="divInactivo">
-                <span class="sr-only"> </span>
-            </div>
-            <div class="progress-bar progress-bar-warning" style="width: 25%" id="divRechazado">
-                <span class="sr-only"></span>
-            </div>
-            <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: 25%" id="divCancelado">
-                <span class="sr-only"></span>
-            </div>
-            <div class="progress-bar progress-bar-info progress-bar-striped" style="width: 25%" id="divNoDefinido">
-                <span class="sr-only"></span>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <div class="contenido text-center">
+                <button type="button" title="Aplicar" id="btnAplicar" class="btn btn-primary form-control">Filtrar</button>
             </div>
         </div>
     </div>
-    @*<h3 id="h3Filtro">@ViewBag.Filtro</h3>*@
 </div>
-
+<br />
 <div id="list"></div>
 @*<div class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <th>
-                Acción
-            </th>
-            <th>
-                Cliente
-            </th>
-            <th>
-                Cuenta
-            </th>
-            <th>
-                Fecha operación
-            </th>
-            <th>
-                Monto
-            </th>
-            <th>
-                Fecha movimiento
-            </th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+        <table class="table table-striped">
             <tr>
-                <td>
-                    @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreOrdenante)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaOrdenante)
-                </td>
-                <td>
-                    @item.Cuenta_Abono_fechaOperacion.ToString("dd/MMM/yyyy")
-                </td>
-                <td>
-                    @String.Format("{0:c}", item.Cuenta_Abono_monto)
-                </td>
-                <td>
-                    @item.Cuenta_Abono_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")
-                </td>
+                <th>
+                    Acción
+                </th>
+                <th>
+                    Cliente
+                </th>
+                <th>
+                    Cuenta
+                </th>
+                <th>
+                    Fecha operación
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Fecha movimiento
+                </th>
             </tr>
-        }
-    </table>
-</div>*@
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreOrdenante)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaOrdenante)
+                    </td>
+                    <td>
+                        @item.Cuenta_Abono_fechaOperacion.ToString("dd/MMM/yyyy")
+                    </td>
+                    <td>
+                        @String.Format("{0:c}", item.Cuenta_Abono_monto)
+                    </td>
+                    <td>
+                        @item.Cuenta_Abono_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>*@
 
 
 @section scripts {

@@ -1,0 +1,11 @@
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\NLog.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\MF_Modelo.dll.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\MF_Modelo.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\EntityFramework.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\EntityFramework.SqlServer.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\NLog.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\EntityFramework.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\EntityFramework.SqlServer.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\SIIFMFv2-FE\NLog.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\obj\SIIFMFv2-FE\MF_Modelo.csprojResolveAssemblyReference.cache
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\obj\SIIFMFv2-FE\MF_Modelo.dll

@@ -10,3 +10,4 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\bin\Debug\NLog.xml
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\obj\Debug\MF_Modelo.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\obj\Debug\MF_Modelo.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_Modelo\MF_Modelo\obj\Debug\MF_Modelo.csprojResolveAssemblyReference.cache

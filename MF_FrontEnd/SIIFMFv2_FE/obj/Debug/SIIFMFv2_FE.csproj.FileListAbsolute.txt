@@ -9,6 +9,7 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\Newtonsoft.Json.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\NLog.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\Swashbuckle.Core.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Net.Http.Formatting.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Web.Helpers.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Web.Http.dll
@@ -19,6 +20,7 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Web.WebPages.Deployment.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Web.WebPages.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\System.Web.WebPages.Razor.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\WebActivatorEx.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\WebGrease.dll
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\MF_Modelo.pdb
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_FrontEnd\SIIFMFv2_FE\bin\Antlr3.Runtime.pdb

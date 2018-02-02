@@ -17,7 +17,11 @@ namespace SIIFMFv2_FE.Controllers
         // GET: Banco
         public ActionResult Index()
         {
-            return View(db.Banco.ToList());
+            BancoBL banco = new BancoBL();
+
+            return View(banco.List());
+
+            //return View( db.Banco.ToList());
         }
 
         // GET: Banco/Details/5

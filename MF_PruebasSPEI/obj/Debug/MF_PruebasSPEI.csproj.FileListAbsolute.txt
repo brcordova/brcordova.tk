@@ -1,7 +1,3 @@
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.csprojResolveAssemblyReference.cache
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.frmCargarXML.resources
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.Properties.Resources.resources
-C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.csproj.GenerateResource.Cache
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\NLog.config
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\MF_PruebasSPEI.exe.config
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\MF_PruebasSPEI.exe
@@ -14,5 +10,9 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\EntityFramework.xml
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\NLog.xml
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.csprojResolveAssemblyReference.cache
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.frmCargarXML.resources
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.Properties.Resources.resources
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.csproj.GenerateResource.Cache
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.exe
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.pdb

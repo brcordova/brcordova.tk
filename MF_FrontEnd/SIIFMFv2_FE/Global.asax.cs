@@ -7,10 +7,14 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+
 namespace SIIFMFv2_FE
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private bool IsAuthorised { get; set; }
+        public static string Current_UserName = "";
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();

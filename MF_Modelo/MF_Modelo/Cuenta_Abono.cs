@@ -5,6 +5,7 @@ namespace MF_Modelo
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Data.Entity;
     using System.Linq;
     using NLog;
 
@@ -24,6 +25,7 @@ namespace MF_Modelo
         #endregion
 
         #region Propiedades
+        [Key]
         public int Id { get; set; }
 
         public int Cuenta_Abono_Id { get; set; }
@@ -87,7 +89,6 @@ namespace MF_Modelo
         
         #endregion
 
-
         #region Métodos
 
         public bool Agregar()
@@ -110,6 +111,24 @@ namespace MF_Modelo
             return ret;
         }
 
+        public bool Actualizar()
+        {
+            bool ret = false;
+
+            try
+            {
+                db.Entry(this).State = EntityState.Modified;
+                db.SaveChanges();
+                ret = true;
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Cuenta_Abono/Actualizar");
+            }
+
+            return ret;
+        }
+
         public List<EstadisticaCA> DatosEstadisticos()
         {
             List<EstadisticaCA> listaECA = eca.listaEstadistica();
@@ -118,8 +137,6 @@ namespace MF_Modelo
 
         public List<Cuenta_Abono> ObtenerAbonos(int? status = 0)
         {
-            //List<Cuenta_Abono> lstAbonos = new List<Cuenta_Abono>();
-
             var abonos = (from ca in db.Cuenta_Abono
                           select ca);
             if (status > 0)
@@ -140,11 +157,24 @@ namespace MF_Modelo
                 {
                     agrid.Inicializar();
 
-                    //var query = ctx.Empleado.Include(x => x.Profesion)
-                    //                        .Where(x => x.id > 0);
+                    DateTime dtFecIni = DateTime.Now;
+                    DateTime dtFecFin = DateTime.Now;
 
+                    if (agrid.parametros.Count() > 0)
+                    {
+                        dtFecIni = agrid.parametros[0].valor == null ?
+                            DateTime.Now : Convert.ToDateTime(agrid.parametros[0].valor.ToString());
+
+                        dtFecFin = agrid.parametros[1].valor == null ?
+                            DateTime.Now : Convert.ToDateTime(agrid.parametros[1].valor.ToString());
+
+                        if (dtFecFin < dtFecIni)
+                            dtFecFin = dtFecIni;
+                    }
                     var query = ctx.Cuenta_Abono
-                        .Where(ca => ca.Id > 0);
+                        .Where(ca => ca.Id > 0 &&
+                            DbFunctions.TruncateTime(ca.Cuenta_Abono_fechaRegistro) >= DbFunctions.TruncateTime(dtFecIni) && DbFunctions.TruncateTime(ca.Cuenta_Abono_fechaRegistro) <= DbFunctions.TruncateTime(dtFecIni)
+                            );
 
                     // Ordenar 
                     if (agrid.columna == "Id") query = agrid.columna_orden == "DESC"
@@ -174,7 +204,6 @@ namespace MF_Modelo
 
                         if (f.columna == "Cuenta_Abono_fechaRegistro" && f.valor != "")
                         {
-                            string pattern = @"^[0-9A-Z]([-.\w]*[0-9A-Z])*$";
                             var fecSol = f.valor.ToString().Trim();
                             DateTime fecSolVal = DateTime.Parse(fecSol);
                             query = query.Where(x => x.Cuenta_Abono_fechaRegistro.ToString().Contains(f.valor));
@@ -195,7 +224,8 @@ namespace MF_Modelo
                                 a.Cuenta_Abono_fechaOperacion,
                                 a.Cuenta_Abono_monto,
                                 a.Cuenta_Abono_fechaRegistro,
-                                a.Cuenta_Abono_conceptoPago
+                                a.Cuenta_Abono_conceptoPago,
+                                a.Cuenta_Abono_Sts_Abono_Id
                             }
                         ,
                         query.Count()
@@ -220,8 +250,5 @@ namespace MF_Modelo
         }
 
         #endregion
-
-
-
     }
 }

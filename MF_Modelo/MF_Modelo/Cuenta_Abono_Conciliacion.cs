@@ -13,21 +13,6 @@
 
         static string conStr = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
 
-        // * psintBancoId								- institucionBeneficiaria
-        // * pstrCuentaId								- cuentaBeneficiario
-        //   pintConciliacionPendienteId				- Consecutivo autogenerado
-        // * pdtmConciliacionPendienteFecha			- fechaOperacion
-        // * pstrConciliacionPendienteDsc				- conceptoPago
-        // * pfltConciliacionPendienteImporte			- monto
-        //   psintConciliacionPendienteIngEgr			- ????
-        //   pstrUsuarioId								- Usuario del sistema
-        //   pstrConciliacionPendienteReferencia		- SELECT Digito FROM Contrato_Digito WHERE Contrato_Id = @Contrato_ID GROUP BY Contrato_Id, Digito
-        //   pstrConciliacionPendienteMovtoBanco		- 
-        //   pstrConciliacionPendienteFechaImp			- GETDATE()
-        //   pbitConciliacionPendienteAut				- true
-        //   pstrConciliacionPendienteObservaciones	-  
-        //   pstrTipoLoquidacionBancoId				- 9999
-        //   pstrConciliacionPendienteCheque			- ""
         #region Miembros
         private int _psintBancoId;
         private string _pstrCuentaId;
@@ -135,8 +120,11 @@
         #endregion
 
         #region Métodos
-        public void RegistraConciliacion()
+        public bool RegistraConciliacion()
         {
+            bool res = false;
+
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(conStr))
@@ -172,15 +160,17 @@
                     if (conn.State == ConnectionState.Closed)
                         conn.Open();
                     cmd.ExecuteNonQuery();
-
+                    res = true;
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex, "Error Cuenta_Abono_Conciliacion/RegistraConciliacion");
-
+                res = false;
 
             }
+
+            return res;
         }
         #endregion
 

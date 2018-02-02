@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using System.Linq;
 using NLog;
+using System.Data.Entity.Validation;
 
 namespace MF_Modelo
 {
@@ -45,7 +46,7 @@ namespace MF_Modelo
         #endregion
 
         #region Métodos
-        public void Agrega()
+        public void Agregar()
         {
             try
             {
@@ -54,17 +55,33 @@ namespace MF_Modelo
                 db.Cuenta_Abono_Respuesta.Add(this);
                 db.SaveChanges();
             }
-            catch (Exception ex)
-            {
+            //catch (Exception ex)
+            //{
 
-                throw new Exception(ex.Message);
+            //    log.Error(ex, "Cuenta_Abono_Respuesta/Agregar");
+            //}
+            catch (DbEntityValidationException dbEx)
+            {
+                log.Error(dbEx, "Cuenta_Abono_Respuesta/Agregar");
+
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = dbEx.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
+
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(dbEx.Message, " The validation errors are: ", fullErrorMessage);
+    
+
             }
 
         }
 
         public int maximoValor()
         {
-
             var datos = db.Cuenta_Abono_Respuesta.Count();
 
             int idMax = 0;
@@ -75,15 +92,12 @@ namespace MF_Modelo
                 if (vIdMax > 0)
                     idMax = (int)vIdMax;
             }
-            catch (Exception ex)
+            catch 
             {
                 idMax = 1;
-
             }
-
-            
-
             return idMax;
+
         }
         #endregion
 

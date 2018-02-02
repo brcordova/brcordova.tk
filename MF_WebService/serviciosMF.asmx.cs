@@ -173,7 +173,7 @@ namespace MF_WebService
                         abonoResponse.Cuenta_Abono_Respuesta_tipoPago = 1;
                         abonoResponse.Cuenta_Abono_Respuesta_rastreoDevolucion = "MFRD-" + abono.Id.ToString().PadLeft(5, '0');
 
-                        abonoResponse.Agrega();
+                        abonoResponse.Agregar();
                         #endregion
 
                         #region Generar la respuesta
@@ -283,7 +283,7 @@ namespace MF_WebService
                     #endregion
 
                     #region Obtenemos los datos del abono
-                    var i = 0;
+
                     Cuenta_Abono ca = new Cuenta_Abono();
                     Cuenta_Abono cuentaAbono = new Cuenta_Abono();
                     cuentaAbono = ca.ObtenerAbonoId(intId);
@@ -291,8 +291,6 @@ namespace MF_WebService
                     Sts_Abono st = new Sts_Abono();
                     Sts_Abono estatus = null;
 
-
-                    //cuentaAbono = cuentaAbono.ObtenerAbonoId(intId);
                     #endregion
 
                     #region Genero la respuesta
@@ -368,7 +366,7 @@ namespace MF_WebService
             {
                 string bancoClave = "";
                 string bancoNombre = "";
-                Banco banco = new Banco();
+                BancoBL banco = new BancoBL();
 
 
                 if (xmlInstituciones != null)

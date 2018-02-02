@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MF_Modelo;
+using NLog;
 
 namespace SIIFMFv2_FE.Controllers
 {
@@ -14,7 +15,7 @@ namespace SIIFMFv2_FE.Controllers
     {
         private SPEIContext db = new SPEIContext();
         private Cuenta_Abono abono = new Cuenta_Abono();
-
+        private static readonly Logger log = LogManager.GetCurrentClassLogger();
         // GET: Abono
         //public ActionResult Index()
         //{
@@ -23,9 +24,6 @@ namespace SIIFMFv2_FE.Controllers
 
         public ActionResult Index(int status = 0)
         {
-            //string strFechaInicio = Request.Form["dtpFecInicio"].ToString();
-            //string strFechaFinal = Request.Form["dtpFecFinal"].ToString();
-
             if (Request.QueryString.Count >= 2)
             {
                 string strFechaInicio = Request.QueryString["dtpFecInicio"].ToString();
@@ -62,13 +60,39 @@ namespace SIIFMFv2_FE.Controllers
 
         public JsonResult Listar(AnexGRIDprop agrid)
         {
-            return Json(abono.Listar(agrid), JsonRequestBehavior.AllowGet);
+            JsonResult respuesta = null;
+            try
+            {
+                respuesta = Json(abono.Listar(agrid), JsonRequestBehavior.AllowGet);
+            }
+
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error AbonoController/Listar");
+            }
+
+            return respuesta;
         }
 
+        public JsonResult Nombre()
+        {
+            return Json("Ricardo Ostos", JsonRequestBehavior.AllowGet);
+        }
 
         public JsonResult Listado()
         {
-            return Json(db.Cuenta_Abono.ToList(),JsonRequestBehavior.AllowGet);
+            JsonResult respuesta = null;
+            try
+            {
+                respuesta = Json(db.Cuenta_Abono.ToList(), JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex, "Error AbonoController/Listado");
+            }
+
+
+            return respuesta;
         }
 
         // GET: Abono/Details/5
