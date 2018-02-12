@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLScripts", "SQLScripts", 
 		sp_In_AgregaCuentaBancaria.sql = sp_In_AgregaCuentaBancaria.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_SrvSTP", "..\MF_SrvSTP\MF_SrvSTP.csproj", "{3B214771-D182-4E95-ADA1-AEDEBAD6D698}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_GeneradorSTP", "..\MF_WFGeneradorSTP\MF_GeneradorSTP.csproj", "{5540C379-5D6B-4820-A003-11657892C9DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,18 @@ Global
 		{FAB7D5E1-53F9-47EC-A02C-5AF0CBD3BA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAB7D5E1-53F9-47EC-A02C-5AF0CBD3BA02}.SIIFMFv2-FE|Any CPU.ActiveCfg = SIIFMFv2-FE|Any CPU
 		{FAB7D5E1-53F9-47EC-A02C-5AF0CBD3BA02}.SIIFMFv2-FE|Any CPU.Deploy.0 = SIIFMFv2-FE|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.SIIFMFv2-FE|Any CPU.ActiveCfg = Release|Any CPU
+		{3B214771-D182-4E95-ADA1-AEDEBAD6D698}.SIIFMFv2-FE|Any CPU.Build.0 = Release|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.SIIFMFv2-FE|Any CPU.ActiveCfg = Release|Any CPU
+		{5540C379-5D6B-4820-A003-11657892C9DC}.SIIFMFv2-FE|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,22 +10,47 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using System.Linq;
+using MF_SrvSTP;
 
 
 namespace MF_PruebasSPEI
 {
     public partial class frmCargarXML : Form
     {
+
+        #region Constructor
+        public frmCargarXML()
+        {
+            InitializeComponent();
+            //Se crean las opciones que comentaba
+            dialogoBuscarArchivo.InitialDirectory = @"C:\Users\busrMFsql\Documents\BROC\Proyectos\SPEI\SPEI";
+            dialogoBuscarArchivo.Filter = "Archivos XML (*.xml)|*.xml|All files (*.*)|*.*";
+            dialogoBuscarArchivo.FilterIndex = 1;
+            dialogoBuscarArchivo.RestoreDirectory = true;
+
+
+            sfdDescarga.InitialDirectory = @"C:\Users\busrMFsql\Documents\BROC\Proyectos\SPEI\SPEI";
+            sfdDescarga.Filter = "Archivos XML (*.xml)|*.xml|All files (*.*)|*.*";
+            sfdDescarga.FilterIndex = 1;
+            sfdDescarga.RestoreDirectory = true;
+        }
+        #endregion
+
+        #region Conexiones y herramientas
         private static readonly SPEIContext db = new SPEIContext();
         //private static readonly Logger log = LogManager.GetCurrentClassLogger();
         private static readonly MF_PruebasSPEI.swMF.serviciosMF srvWS = new MF_PruebasSPEI.swMF.serviciosMF();
         private static readonly MF_PruebasSPEI.lhMF.serviciosMF srvLH = new lhMF.serviciosMF();
         private static readonly MF_PruebasSPEI.exMF.serviciosMF srvEX = new exMF.serviciosMF();
+        
 
         toolsMF ttmf = new toolsMF();
 
         static string strConStrSPEI = ConfigurationManager.ConnectionStrings["SPEIContext"].ConnectionString;
         static string strConStrSIIF = ConfigurationManager.ConnectionStrings["SIIFContext"].ConnectionString;
+        #endregion
+
+        #region Acciones
 
         private void btnCargarDatos_Click(object sender, EventArgs e)
         {
@@ -222,21 +247,42 @@ namespace MF_PruebasSPEI
             }
         }
 
-        public frmCargarXML()
+        private void btnEnviaPagos_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            //Se crean las opciones que comentaba
-            dialogoBuscarArchivo.InitialDirectory = @"C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SPEI";
-            dialogoBuscarArchivo.Filter = "Archivos XML (*.xml)|*.xml|All files (*.*)|*.*";
-            dialogoBuscarArchivo.FilterIndex = 1;
-            dialogoBuscarArchivo.RestoreDirectory = true;
+            #region Orden de Pago
+            ordenPagoWS data = new ordenPagoWS();
+            data.empresa = "MAS_FONDOS";
+            data.claveRastreo = "MSFCH0OEE80003";
+            data.conceptoPago = "Pruebas de Más Fondos";
+            data.cuentaBeneficiario = "846180000400000001";
+            data.cuentaOrdenante = "";
+            data.referenciaNumerica = 2;
+            data.referenciaNumericaSpecified = true;
+            data.monto = 460000.82M;
+            data.montoSpecified = true;
+            data.tipoCuentaBeneficiario = 40;
+            data.tipoCuentaBeneficiarioSpecified = true;
+            data.tipoPago = 1;
+            data.tipoPagoSpecified = true;
+            data.institucionContraparte = 846;
+            data.institucionContraparteSpecified = true;
+            data.nombreBeneficiario = "Juan Delgado";
+            data.institucionOperante = 90646;
+            data.institucionOperanteSpecified = true;
+            data.iva = 16;
+            data.ivaSpecified = true;
+            #endregion
 
+            MF_STPServicios mfstp = new MF_STPServicios();
+            STPServices stp = new STPServices("", "", "");
+            
 
-            sfdDescarga.InitialDirectory = @"C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SPEI";
-            sfdDescarga.Filter = "Archivos XML (*.xml)|*.xml|All files (*.*)|*.*";
-            sfdDescarga.FilterIndex = 1;
-            sfdDescarga.RestoreDirectory = true;
+            bool res =  mfstp.RegistrarOrdenPago(data);
+            
         }
+
+        #endregion
+
 
         public XmlDocument recibeAbono(XmlDocument xmlDoc)
         {
@@ -343,8 +389,8 @@ namespace MF_PruebasSPEI
                             item.Element("tipoCuentaOrdenante").Value == null ? 40 :
                             Convert.ToInt32(item.Element("tipoCuentaOrdenante").Value);
 
-                            abono.Cuenta_Abono_cuentaOrdenante = item.Element("cuentaOrdenante").Value == null ? "" :
-                            item.Element("cuentaOrdenante").Value;
+                        abono.Cuenta_Abono_cuentaOrdenante = item.Element("cuentaOrdenante").Value == null ? "" :
+                        item.Element("cuentaOrdenante").Value;
 
                         abono.Cuenta_Abono_rfcCurpOrdenante =
                             item.Element("rfcCurpOrdenante").Value == null ? "" :
@@ -371,8 +417,6 @@ namespace MF_PruebasSPEI
                             item.Element("conceptoPago").Value;
 
                         abono.Cuenta_Abono_referenciaNumerica = Convert.ToInt32(strContrato);
-                        //    item.Element("referenciaNumerica").Value == null ? 0 :
-                        //    Convert.ToInt32(item.Element("referenciaNumerica").Value);
 
                         abono.Cuenta_Abono_empresa =
                             item.Element("empresa").Value == null ? "" :
@@ -388,11 +432,9 @@ namespace MF_PruebasSPEI
 
                         abono.Cuenta_Abono_Sts_Abono_Id = intSts_Abono;
 
-                        // Agrego el registro a la tabla
-                        abono.Agregar();
-
-                        // Agrego el registro a la lista.
-                        sendAbonos.Add(abono);
+                        // Agrego el abono y al listado
+                        if (abono.Agregar())
+                            sendAbonos.Add(abono);
 
                         #endregion
 
@@ -439,8 +481,8 @@ namespace MF_PruebasSPEI
                                 (decimal)abono.Cuenta_Abono_monto;
                             abonoConciliacion.psintConciliacionPendienteIngEgr = 5;
                             abonoConciliacion.pstrUsuarioId = "SPEIMF";
-                            abonoConciliacion.pstrConciliacionPendienteReferencia =
-                                abono.Cuenta_Abono_referenciaNumerica.ToString();
+                            abonoConciliacion.pstrConciliacionPendienteReferencia = strContrato;
+                                //abono.Cuenta_Abono_referenciaNumerica.ToString();
                             abonoConciliacion.pstrConciliacionPendienteMovtoBanco = "";
                             abonoConciliacion.pstrConciliacionPendienteFechaImp = DateTime.Now.ToString();
                             abonoConciliacion.pbitConciliacionPendienteAut = false;
@@ -451,7 +493,7 @@ namespace MF_PruebasSPEI
                             if (abonoConciliacion.RegistraConciliacion())
                                 abono.Cuenta_Abono_Sts_Abono_Id = 20; // Abono exitoso
                             else
-                                abono.Cuenta_Abono_Sts_Abono_Id = 40; //Error al regististrar la conciliación.
+                                abono.Cuenta_Abono_Sts_Abono_Id = 40; //Error al registrar la conciliación.
                         }
 
                         // Actualizo el status del abono.
@@ -464,7 +506,7 @@ namespace MF_PruebasSPEI
                          * el registro de Contrato_Id, Banco, digito no se va a mostrar
                          * en resultado en Ordenes Pendientes
                         */
-                        //SqlDataReader ordenesPendientes = tool.obtenerOrdenesPendientes(DateTime.Now);
+
                         DataSet ordenesPendientes = tool.obtenerOrdenesPendientes(DateTime.Now);
                         if (ordenesPendientes.Tables.Count > 0)
                         {
@@ -627,8 +669,6 @@ namespace MF_PruebasSPEI
 
         }
 
-
-
         public string recibeInstituciones(XmlDocument xmlInstituciones)
         {
             string strRes = "En proceso...";
@@ -668,6 +708,8 @@ namespace MF_PruebasSPEI
 
             return strRes;
         }
+
+
 
     } // Termina clase principal
 

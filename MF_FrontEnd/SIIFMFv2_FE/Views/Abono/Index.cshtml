@@ -4,6 +4,25 @@
     ViewBag.Title = "Abonos";
 }
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<br />
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3 text-center">
+        <form class="form-inline">
+            <button type="submit" class="btn btn-primary form-control" disabled>Saldo</button>
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Saldo en la cuenta</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" class="form-control text-right" id="exampleInputAmount" disabled placeholder="0">
+                    <div class="input-group-addon">.00</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
 <h2>Abonos registrados</h2>
 <div class="container-fluid text-center">
     <div class="row">
@@ -26,9 +45,6 @@
 <br />
 <div class="container">
     <div class="row">
-        @*<div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="contenido text-right">Filtrado por fechas</div>
-        </div>*@
         <div class="col-xs-6 col-md-4">
             <div class="contenido">
                 <input type="text" id="dtpFecInicio" required placeholder="Desde" class="form-control" />
@@ -48,55 +64,6 @@
 </div>
 <br />
 <div id="list"></div>
-@*<div class="table-responsive">
-        <table class="table table-striped">
-            <tr>
-                <th>
-                    Acción
-                </th>
-                <th>
-                    Cliente
-                </th>
-                <th>
-                    Cuenta
-                </th>
-                <th>
-                    Fecha operación
-                </th>
-                <th>
-                    Monto
-                </th>
-                <th>
-                    Fecha movimiento
-                </th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large" })
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cuenta_Abono_nombreOrdenante)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cuenta_Abono_cuentaOrdenante)
-                    </td>
-                    <td>
-                        @item.Cuenta_Abono_fechaOperacion.ToString("dd/MMM/yyyy")
-                    </td>
-                    <td>
-                        @String.Format("{0:c}", item.Cuenta_Abono_monto)
-                    </td>
-                    <td>
-                        @item.Cuenta_Abono_fechaRegistro.ToString("dd/MMM/yyyy HH:mm")
-                    </td>
-                </tr>
-            }
-        </table>
-    </div>*@
-
 
 @section scripts {
     <script src="@Url.Content("~/Scripts/appJS/abonos.js")" type="text/javascript"></script>

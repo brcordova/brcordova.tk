@@ -26,7 +26,7 @@ namespace MF_PruebasSPEI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx")]
         public string MF_PruebasSPEI_swMF_serviciosMF {
             get {
                 return ((string)(this["MF_PruebasSPEI_swMF_serviciosMF"]));
@@ -66,7 +66,7 @@ namespace MF_PruebasSPEI.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx")]
         public string pruebasSPEI_swMF_serviciosMF {
             get {
                 return ((string)(this["pruebasSPEI_swMF_serviciosMF"]));

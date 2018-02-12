@@ -16,3 +16,7 @@ C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.csproj.GenerateResource.Cache
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.exe
 C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\obj\Debug\MF_PruebasSPEI.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\MF_SrvSTP.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\MF_SrvSTP.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_PruebasSPEI\bin\Debug\llave\prueba.p12

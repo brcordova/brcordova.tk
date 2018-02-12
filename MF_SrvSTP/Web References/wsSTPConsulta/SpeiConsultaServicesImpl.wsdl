@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://h2h.integration.spei.enlacefi.lgec.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SpeiConsultaServicesImpl" targetNamespace="http://h2h.integration.spei.enlacefi.lgec.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.5.1.5:7004/speidemo/webservices/SpeiConsultaServices?xsd=1" namespace="http://h2h.integration.spei.enlacefi.lgec.com/" />
+    </xsd:schema>
+  </types>
+  <message name="conciliacionService">
+    <part name="parameters" element="tns:conciliacionService" />
+  </message>
+  <message name="conciliacionServiceResponse">
+    <part name="parameters" element="tns:conciliacionServiceResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="consultaSaldos">
+    <part name="parameters" element="tns:consultaSaldos" />
+  </message>
+  <message name="consultaSaldosResponse">
+    <part name="parameters" element="tns:consultaSaldosResponse" />
+  </message>
+  <message name="conciliacionServiceFirma">
+    <part name="parameters" element="tns:conciliacionServiceFirma" />
+  </message>
+  <message name="conciliacionServiceFirmaResponse">
+    <part name="parameters" element="tns:conciliacionServiceFirmaResponse" />
+  </message>
+  <message name="estadoOperaciones">
+    <part name="parameters" element="tns:estadoOperaciones" />
+  </message>
+  <message name="estadoOperacionesResponse">
+    <part name="parameters" element="tns:estadoOperacionesResponse" />
+  </message>
+  <message name="consultaOrdenEnviada">
+    <part name="parameters" element="tns:consultaOrdenEnviada" />
+  </message>
+  <message name="consultaOrdenEnviadaResponse">
+    <part name="parameters" element="tns:consultaOrdenEnviadaResponse" />
+  </message>
+  <message name="consultaOrdenEnvFirma">
+    <part name="parameters" element="tns:consultaOrdenEnvFirma" />
+  </message>
+  <message name="consultaOrdenEnvFirmaResponse">
+    <part name="parameters" element="tns:consultaOrdenEnvFirmaResponse" />
+  </message>
+  <message name="consultaOrdenEnviadaRastreo">
+    <part name="parameters" element="tns:consultaOrdenEnviadaRastreo" />
+  </message>
+  <message name="consultaOrdenEnviadaRastreoResponse">
+    <part name="parameters" element="tns:consultaOrdenEnviadaRastreoResponse" />
+  </message>
+  <message name="consultaOrdenRecibida">
+    <part name="parameters" element="tns:consultaOrdenRecibida" />
+  </message>
+  <message name="consultaOrdenRecibidaResponse">
+    <part name="parameters" element="tns:consultaOrdenRecibidaResponse" />
+  </message>
+  <message name="consultaNominaTesofe">
+    <part name="parameters" element="tns:consultaNominaTesofe" />
+  </message>
+  <message name="consultaNominaTesofeResponse">
+    <part name="parameters" element="tns:consultaNominaTesofeResponse" />
+  </message>
+  <message name="consultaNominaTesofeFechaOperacion">
+    <part name="parameters" element="tns:consultaNominaTesofeFechaOperacion" />
+  </message>
+  <message name="consultaNominaTesofeFechaOperacionResponse">
+    <part name="parameters" element="tns:consultaNominaTesofeFechaOperacionResponse" />
+  </message>
+  <message name="consultaOrdenes">
+    <part name="parameters" element="tns:consultaOrdenes" />
+  </message>
+  <message name="consultaOrdenesResponse">
+    <part name="parameters" element="tns:consultaOrdenesResponse" />
+  </message>
+  <message name="esDiaInhabil">
+    <part name="parameters" element="tns:esDiaInhabil" />
+  </message>
+  <message name="esDiaInhabilResponse">
+    <part name="parameters" element="tns:esDiaInhabilResponse" />
+  </message>
+  <message name="denominacionesPagosMoviles">
+    <part name="parameters" element="tns:denominacionesPagosMoviles" />
+  </message>
+  <message name="denominacionesPagosMovilesResponse">
+    <part name="parameters" element="tns:denominacionesPagosMovilesResponse" />
+  </message>
+  <message name="consultaCEP">
+    <part name="parameters" element="tns:consultaCEP" />
+  </message>
+  <message name="consultaCEPResponse">
+    <part name="parameters" element="tns:consultaCEPResponse" />
+  </message>
+  <message name="consultaCEPLote">
+    <part name="parameters" element="tns:consultaCEPLote" />
+  </message>
+  <message name="consultaCEPLoteResponse">
+    <part name="parameters" element="tns:consultaCEPLoteResponse" />
+  </message>
+  <message name="consultaCEPCuentaOpeLote">
+    <part name="parameters" element="tns:consultaCEPCuentaOpeLote" />
+  </message>
+  <message name="consultaCEPCuentaOpeLoteResponse">
+    <part name="parameters" element="tns:consultaCEPCuentaOpeLoteResponse" />
+  </message>
+  <message name="consultaCEPCuentaOperante">
+    <part name="parameters" element="tns:consultaCEPCuentaOperante" />
+  </message>
+  <message name="consultaCEPCuentaOperanteResponse">
+    <part name="parameters" element="tns:consultaCEPCuentaOperanteResponse" />
+  </message>
+  <message name="consultaSaldoCuenta">
+    <part name="parameters" element="tns:consultaSaldoCuenta" />
+  </message>
+  <message name="consultaSaldoCuentaResponse">
+    <part name="parameters" element="tns:consultaSaldoCuentaResponse" />
+  </message>
+  <message name="consultaCatalogos">
+    <part name="parameters" element="tns:consultaCatalogos" />
+  </message>
+  <message name="consultaCatalogosResponse">
+    <part name="parameters" element="tns:consultaCatalogosResponse" />
+  </message>
+  <portType name="SpeiConsultaServices">
+    <operation name="conciliacionService">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionServiceRequest" message="tns:conciliacionService" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionServiceResponse" message="tns:conciliacionServiceResponse" />
+      <fault wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionService/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="consultaSaldos">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaSaldosRequest" message="tns:consultaSaldos" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaSaldosResponse" message="tns:consultaSaldosResponse" />
+    </operation>
+    <operation name="conciliacionServiceFirma">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionServiceFirmaRequest" message="tns:conciliacionServiceFirma" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionServiceFirmaResponse" message="tns:conciliacionServiceFirmaResponse" />
+      <fault wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/conciliacionServiceFirma/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="estadoOperaciones">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/estadoOperacionesRequest" message="tns:estadoOperaciones" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/estadoOperacionesResponse" message="tns:estadoOperacionesResponse" />
+      <fault wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/estadoOperaciones/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="consultaOrdenEnviada">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnviadaRequest" message="tns:consultaOrdenEnviada" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnviadaResponse" message="tns:consultaOrdenEnviadaResponse" />
+    </operation>
+    <operation name="consultaOrdenEnvFirma">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnvFirmaRequest" message="tns:consultaOrdenEnvFirma" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnvFirmaResponse" message="tns:consultaOrdenEnvFirmaResponse" />
+    </operation>
+    <operation name="consultaOrdenEnviadaRastreo">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnviadaRastreoRequest" message="tns:consultaOrdenEnviadaRastreo" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenEnviadaRastreoResponse" message="tns:consultaOrdenEnviadaRastreoResponse" />
+    </operation>
+    <operation name="consultaOrdenRecibida">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenRecibidaRequest" message="tns:consultaOrdenRecibida" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenRecibidaResponse" message="tns:consultaOrdenRecibidaResponse" />
+    </operation>
+    <operation name="consultaNominaTesofe">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaNominaTesofeRequest" message="tns:consultaNominaTesofe" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaNominaTesofeResponse" message="tns:consultaNominaTesofeResponse" />
+    </operation>
+    <operation name="consultaNominaTesofeFechaOperacion">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaNominaTesofeFechaOperacionRequest" message="tns:consultaNominaTesofeFechaOperacion" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaNominaTesofeFechaOperacionResponse" message="tns:consultaNominaTesofeFechaOperacionResponse" />
+    </operation>
+    <operation name="consultaOrdenes">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenesRequest" message="tns:consultaOrdenes" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaOrdenesResponse" message="tns:consultaOrdenesResponse" />
+    </operation>
+    <operation name="esDiaInhabil">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/esDiaInhabilRequest" message="tns:esDiaInhabil" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/esDiaInhabilResponse" message="tns:esDiaInhabilResponse" />
+    </operation>
+    <operation name="denominacionesPagosMoviles">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/denominacionesPagosMovilesRequest" message="tns:denominacionesPagosMoviles" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/denominacionesPagosMovilesResponse" message="tns:denominacionesPagosMovilesResponse" />
+    </operation>
+    <operation name="consultaCEP">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPRequest" message="tns:consultaCEP" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPResponse" message="tns:consultaCEPResponse" />
+    </operation>
+    <operation name="consultaCEPLote">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPLoteRequest" message="tns:consultaCEPLote" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPLoteResponse" message="tns:consultaCEPLoteResponse" />
+    </operation>
+    <operation name="consultaCEPCuentaOpeLote">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPCuentaOpeLoteRequest" message="tns:consultaCEPCuentaOpeLote" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPCuentaOpeLoteResponse" message="tns:consultaCEPCuentaOpeLoteResponse" />
+    </operation>
+    <operation name="consultaCEPCuentaOperante">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPCuentaOperanteRequest" message="tns:consultaCEPCuentaOperante" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCEPCuentaOperanteResponse" message="tns:consultaCEPCuentaOperanteResponse" />
+    </operation>
+    <operation name="consultaSaldoCuenta">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaSaldoCuentaRequest" message="tns:consultaSaldoCuenta" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaSaldoCuentaResponse" message="tns:consultaSaldoCuentaResponse" />
+    </operation>
+    <operation name="consultaCatalogos">
+      <input wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCatalogosRequest" message="tns:consultaCatalogos" />
+      <output wsam:Action="http://h2h.integration.spei.enlacefi.lgec.com/SpeiConsultaServices/consultaCatalogosResponse" message="tns:consultaCatalogosResponse" />
+    </operation>
+  </portType>
+  <binding name="SpeiConsultaServicesImplPortBinding" type="tns:SpeiConsultaServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="conciliacionService">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="consultaSaldos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="conciliacionServiceFirma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="estadoOperaciones">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="consultaOrdenEnviada">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaOrdenEnvFirma">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaOrdenEnviadaRastreo">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaOrdenRecibida">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaNominaTesofe">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaNominaTesofeFechaOperacion">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaOrdenes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="esDiaInhabil">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="denominacionesPagosMoviles">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaCEP">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaCEPLote">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaCEPCuentaOpeLote">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaCEPCuentaOperante">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaSaldoCuenta">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="consultaCatalogos">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SpeiConsultaServicesImpl">
+    <port name="SpeiConsultaServicesImplPort" binding="tns:SpeiConsultaServicesImplPortBinding">
+      <soap:address location="http://10.5.1.5:7004/speidemo/webservices/SpeiConsultaServices" />
+    </port>
+  </service>
+</definitions>

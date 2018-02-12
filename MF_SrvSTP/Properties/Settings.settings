@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MF_SrvSTP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MF_SrvSTP_wsSTP_SpeiActualizaServicesImpl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.5.1.5:7004/speidemo/webservices/SpeiActualizaServices</Value>
+    </Setting>
+    <Setting Name="MF_SrvSTP_wsSTPConsulta_SpeiConsultaServicesImpl" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.5.1.5:7004/speidemo/webservices/SpeiConsultaServices</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -166,10 +166,10 @@
   </wsdl:binding>
   <wsdl:service name="serviciosMF">
     <wsdl:port name="serviciosMFSoap" binding="tns:serviciosMFSoap">
-      <soap:address location="http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx" />
+      <soap:address location="http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx" />
     </wsdl:port>
     <wsdl:port name="serviciosMFSoap12" binding="tns:serviciosMFSoap12">
-      <soap12:address location="http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx" />
+      <soap12:address location="http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

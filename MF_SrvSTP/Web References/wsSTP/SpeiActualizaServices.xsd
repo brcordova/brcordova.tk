@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns0="http://h2h.integration.spei.enlacefi.lgec.com/" targetNamespace="http://h2h.integration.spei.enlacefi.lgec.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="devuelveOrdenRazonRechazo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="nuevoRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="razonRechazo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="regDetalleErrEnvExtempResponse" />
+  <xsd:complexType name="facturas">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="factura" nillable="true" type="ns0:facturaWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaCargoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaCargoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraTraspaso">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="traspaso" type="ns0:traspasoWS" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="devuelveOrden">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="nuevoRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbonoDelay">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idEF" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rfc" type="xsd:string" />
+      <xsd:element minOccurs="0" name="delay" type="xsd:long" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbonoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseOrdenTraspaso">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descripcionError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="existeError" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="responsesOrdenes" nillable="true" type="ns0:speiServiceFolioOrigenResponse" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="responsesTrapasos" nillable="true" type="ns0:speiServiceFolioOrigenResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="devuelveOrdenExtemporaneaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="asociaNumeroCelular">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="numeroCelular" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaCLABE" type="xsd:string" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="altaCuentaTerceros">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="nombre" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfc" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reenviaErroresH2H">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="devuelveOrdenRazonRechazoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaAbono">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaAbonoRastreoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrdenesTraspasos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ordenesTraspasos" type="ns0:ordenesTraspasos" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaCargoRastreoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="desconectaResponse" />
+  <xsd:complexType name="devuelveOrdenClaveRastreoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="desconecta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conecta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraDetalleErrorEnvioResponse" />
+  <xsd:complexType name="registraDetalleErrorRecepcionResponse" />
+  <xsd:complexType name="devuelveOrdenExtemporanea">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveInstitucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="montoInteres" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbonoId">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idEF" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rfc" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraDetalleErrorEnvio">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+      <xsd:element minOccurs="0" name="detalleError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="asociaNumeroCelularResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="speiServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descripcionError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraDetalleErrorRecepcion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+      <xsd:element minOccurs="0" name="detalleError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrdenes">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ordenesPago" nillable="true" type="ns0:ordenPagoWS" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaAbonoRastreo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instContraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbonoDelayResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbonoIdResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrdenesTraspasosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:responseOrdenTraspaso" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="traspasoEntreCuentas">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cuentaOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaDestino" type="xsd:string" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:string" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrdenResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrden">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ordenPago" type="ns0:ordenPagoWS" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="traspasoEntreCuentasResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ordenesTraspasos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ordenesPago" nillable="true" type="ns0:ordenPagoWS" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="traspasosWS" nillable="true" type="ns0:traspasoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="facturaWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="folio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="iva" type="xsd:double" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="devuelveOrdenResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="regDetalleErrEnvExtemp">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+      <xsd:element minOccurs="0" name="detalleError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechOper" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaCargo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="razonCancelacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nuevoEstado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraOrdenesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="altaCuentaTercerosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:altaCuentaTercerosReturn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaAbono">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionContraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfc" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="altaCuentaTercerosReturn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descripcionError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conectaResponse" />
+  <xsd:complexType name="tiempoEntregaAbonoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="traspasoWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" name="institucionCASFIM" type="xsd:string" />
+      <xsd:element minOccurs="0" name="institucionSpei" type="xsd:int" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="tipoTraspaso" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tsLiquidacion" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaCargoRastreo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="institucionOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="razonCancelacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nuevoEstado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="devuelveOrdenClaveRastreo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="claveInstitucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="nuevoRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ordenPagoWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveCatUsuario1" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveCatUsuario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="clavePago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveRastreoDevolucion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="conceptoPago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="conceptoPago2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="digitoIdentificadorBeneficiario" type="xsd:int" />
+      <xsd:element minOccurs="0" name="digitoIdentificadorOrdenante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="emailBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="error" type="xsd:string" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="facturas" type="ns0:facturas" />
+      <xsd:element minOccurs="0" name="fechaLimitePago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folioCobroSPEI" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" name="idCliente" type="xsd:string" />
+      <xsd:element minOccurs="0" name="idEF" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionContraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="iva" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="montoInteres" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="montoOriginal" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="numCelularBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="numCelularOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="prioridad" type="xsd:int" />
+      <xsd:element minOccurs="0" name="referenciaCobranza" type="xsd:string" />
+      <xsd:element minOccurs="0" name="referenciaNumerica" type="xsd:int" />
+      <xsd:element minOccurs="0" name="reintentos" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rfcCurpBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfcCurpBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfcCurpOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoCuentaBeneficiario" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoCuentaBeneficiario2" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoCuentaOrdenante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoPago" type="xsd:int" />
+      <xsd:element minOccurs="0" name="topologia" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tsAcuseBanxico" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsAcuseConfirmacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsCaptura" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsConfirmacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsDevolucion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsDevolucionRecibida" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsEntrega" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsLiquidacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaCargo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="tiempoEntregaCargoRastreo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="confirmaCargoRastreoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reenviaErroresH2HResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="registraTraspasoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="speiServiceFolioOrigenResponse">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="ns0:speiServiceResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="devuelveOrdenRazonRechazo" type="ns0:devuelveOrdenRazonRechazo" />
+  <xsd:element name="regDetalleErrEnvExtempResponse" type="ns0:regDetalleErrEnvExtempResponse" />
+  <xsd:element name="confirmaCargoResponse" type="ns0:confirmaCargoResponse" />
+  <xsd:element name="tiempoEntregaCargoResponse" type="ns0:tiempoEntregaCargoResponse" />
+  <xsd:element name="registraTraspaso" type="ns0:registraTraspaso" />
+  <xsd:element name="devuelveOrden" type="ns0:devuelveOrden" />
+  <xsd:element name="confirmaAbonoDelay" type="ns0:confirmaAbonoDelay" />
+  <xsd:element name="confirmaAbonoResponse" type="ns0:confirmaAbonoResponse" />
+  <xsd:element name="devuelveOrdenExtemporaneaResponse" type="ns0:devuelveOrdenExtemporaneaResponse" />
+  <xsd:element name="asociaNumeroCelular" type="ns0:asociaNumeroCelular" />
+  <xsd:element name="altaCuentaTerceros" type="ns0:altaCuentaTerceros" />
+  <xsd:element name="reenviaErroresH2H" type="ns0:reenviaErroresH2H" />
+  <xsd:element name="devuelveOrdenRazonRechazoResponse" type="ns0:devuelveOrdenRazonRechazoResponse" />
+  <xsd:element name="tiempoEntregaAbono" type="ns0:tiempoEntregaAbono" />
+  <xsd:element name="tiempoEntregaAbonoRastreoResponse" type="ns0:tiempoEntregaAbonoRastreoResponse" />
+  <xsd:element name="registraOrdenesTraspasos" type="ns0:registraOrdenesTraspasos" />
+  <xsd:element name="tiempoEntregaCargoRastreoResponse" type="ns0:tiempoEntregaCargoRastreoResponse" />
+  <xsd:element name="desconectaResponse" type="ns0:desconectaResponse" />
+  <xsd:element name="devuelveOrdenClaveRastreoResponse" type="ns0:devuelveOrdenClaveRastreoResponse" />
+  <xsd:element name="desconecta" type="ns0:desconecta" />
+  <xsd:element name="conecta" type="ns0:conecta" />
+  <xsd:element name="registraDetalleErrorEnvioResponse" type="ns0:registraDetalleErrorEnvioResponse" />
+  <xsd:element name="registraDetalleErrorRecepcionResponse" type="ns0:registraDetalleErrorRecepcionResponse" />
+  <xsd:element name="devuelveOrdenExtemporanea" type="ns0:devuelveOrdenExtemporanea" />
+  <xsd:element name="confirmaAbonoId" type="ns0:confirmaAbonoId" />
+  <xsd:element name="registraDetalleErrorEnvio" type="ns0:registraDetalleErrorEnvio" />
+  <xsd:element name="asociaNumeroCelularResponse" type="ns0:asociaNumeroCelularResponse" />
+  <xsd:element name="registraDetalleErrorRecepcion" type="ns0:registraDetalleErrorRecepcion" />
+  <xsd:element name="registraOrdenes" type="ns0:registraOrdenes" />
+  <xsd:element name="tiempoEntregaAbonoRastreo" type="ns0:tiempoEntregaAbonoRastreo" />
+  <xsd:element name="confirmaAbonoDelayResponse" type="ns0:confirmaAbonoDelayResponse" />
+  <xsd:element name="confirmaAbonoIdResponse" type="ns0:confirmaAbonoIdResponse" />
+  <xsd:element name="registraOrdenesTraspasosResponse" type="ns0:registraOrdenesTraspasosResponse" />
+  <xsd:element name="traspasoEntreCuentas" type="ns0:traspasoEntreCuentas" />
+  <xsd:element name="registraOrdenResponse" type="ns0:registraOrdenResponse" />
+  <xsd:element name="registraOrden" type="ns0:registraOrden" />
+  <xsd:element name="traspasoEntreCuentasResponse" type="ns0:traspasoEntreCuentasResponse" />
+  <xsd:element name="devuelveOrdenResponse" type="ns0:devuelveOrdenResponse" />
+  <xsd:element name="regDetalleErrEnvExtemp" type="ns0:regDetalleErrEnvExtemp" />
+  <xsd:element name="confirmaCargo" type="ns0:confirmaCargo" />
+  <xsd:element name="registraOrdenesResponse" type="ns0:registraOrdenesResponse" />
+  <xsd:element name="altaCuentaTercerosResponse" type="ns0:altaCuentaTercerosResponse" />
+  <xsd:element name="confirmaAbono" type="ns0:confirmaAbono" />
+  <xsd:element name="conectaResponse" type="ns0:conectaResponse" />
+  <xsd:element name="tiempoEntregaAbonoResponse" type="ns0:tiempoEntregaAbonoResponse" />
+  <xsd:element name="confirmaCargoRastreo" type="ns0:confirmaCargoRastreo" />
+  <xsd:element name="devuelveOrdenClaveRastreo" type="ns0:devuelveOrdenClaveRastreo" />
+  <xsd:element name="tiempoEntregaCargo" type="ns0:tiempoEntregaCargo" />
+  <xsd:element name="tiempoEntregaCargoRastreo" type="ns0:tiempoEntregaCargoRastreo" />
+  <xsd:element name="confirmaCargoRastreoResponse" type="ns0:confirmaCargoRastreoResponse" />
+  <xsd:element name="reenviaErroresH2HResponse" type="ns0:reenviaErroresH2HResponse" />
+  <xsd:element name="registraTraspasoResponse" type="ns0:registraTraspasoResponse" />
+</xsd:schema>

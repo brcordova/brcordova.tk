@@ -48,6 +48,9 @@
             this.lblCargaBanco = new System.Windows.Forms.Label();
             this.btnCargaBanco = new System.Windows.Forms.Button();
             this.lblCargaBancoResultado = new System.Windows.Forms.Label();
+            this.lblEnviaPagos = new System.Windows.Forms.Label();
+            this.btnEnviaPagos = new System.Windows.Forms.Button();
+            this.lblEnviaPagosResultado = new System.Windows.Forms.Label();
             this.gbWebServices.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +108,7 @@
             // 
             // btnAplicarOrden
             // 
-            this.btnAplicarOrden.Location = new System.Drawing.Point(245, 56);
+            this.btnAplicarOrden.Location = new System.Drawing.Point(245, 55);
             this.btnAplicarOrden.Name = "btnAplicarOrden";
             this.btnAplicarOrden.Size = new System.Drawing.Size(75, 23);
             this.btnAplicarOrden.TabIndex = 6;
@@ -179,7 +182,7 @@
             // 
             // btnCambioEdo
             // 
-            this.btnCambioEdo.Location = new System.Drawing.Point(245, 100);
+            this.btnCambioEdo.Location = new System.Drawing.Point(245, 98);
             this.btnCambioEdo.Name = "btnCambioEdo";
             this.btnCambioEdo.Size = new System.Drawing.Size(75, 23);
             this.btnCambioEdo.TabIndex = 13;
@@ -207,7 +210,7 @@
             // 
             // btnCargaBanco
             // 
-            this.btnCargaBanco.Location = new System.Drawing.Point(245, 144);
+            this.btnCargaBanco.Location = new System.Drawing.Point(245, 141);
             this.btnCargaBanco.Name = "btnCargaBanco";
             this.btnCargaBanco.Size = new System.Drawing.Size(75, 23);
             this.btnCargaBanco.TabIndex = 16;
@@ -224,11 +227,42 @@
             this.lblCargaBancoResultado.TabIndex = 15;
             this.lblCargaBancoResultado.Text = "Proceso de archivo";
             // 
+            // lblEnviaPagos
+            // 
+            this.lblEnviaPagos.AutoSize = true;
+            this.lblEnviaPagos.Location = new System.Drawing.Point(143, 189);
+            this.lblEnviaPagos.Name = "lblEnviaPagos";
+            this.lblEnviaPagos.Size = new System.Drawing.Size(68, 13);
+            this.lblEnviaPagos.TabIndex = 20;
+            this.lblEnviaPagos.Text = "Envía pagos";
+            // 
+            // btnEnviaPagos
+            // 
+            this.btnEnviaPagos.Location = new System.Drawing.Point(245, 184);
+            this.btnEnviaPagos.Name = "btnEnviaPagos";
+            this.btnEnviaPagos.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviaPagos.TabIndex = 19;
+            this.btnEnviaPagos.Text = "Envia pago";
+            this.btnEnviaPagos.UseVisualStyleBackColor = true;
+            this.btnEnviaPagos.Click += new System.EventHandler(this.btnEnviaPagos_Click);
+            // 
+            // lblEnviaPagosResultado
+            // 
+            this.lblEnviaPagosResultado.AutoSize = true;
+            this.lblEnviaPagosResultado.Location = new System.Drawing.Point(326, 189);
+            this.lblEnviaPagosResultado.Name = "lblEnviaPagosResultado";
+            this.lblEnviaPagosResultado.Size = new System.Drawing.Size(97, 13);
+            this.lblEnviaPagosResultado.TabIndex = 18;
+            this.lblEnviaPagosResultado.Text = "Proceso por iniciar.";
+            // 
             // frmCargarXML
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(671, 262);
+            this.Controls.Add(this.lblEnviaPagos);
+            this.Controls.Add(this.btnEnviaPagos);
+            this.Controls.Add(this.lblEnviaPagosResultado);
             this.Controls.Add(this.lblCargaBanco);
             this.Controls.Add(this.btnCargaBanco);
             this.Controls.Add(this.lblCargaBancoResultado);
@@ -273,6 +307,9 @@
         private System.Windows.Forms.Button btnCargaBanco;
         protected internal System.Windows.Forms.Label lblCargaBancoResultado;
         private System.Windows.Forms.Label lblAplicaAbonoResultado;
+        private System.Windows.Forms.Label lblEnviaPagos;
+        private System.Windows.Forms.Button btnEnviaPagos;
+        protected internal System.Windows.Forms.Label lblEnviaPagosResultado;
 
     }
 }

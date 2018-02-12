@@ -141,6 +141,10 @@
       <Project>{214e69a9-b914-45dc-a871-f3f859f24cab}</Project>
       <Name>MF_Modelo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MF_SrvSTP\MF_SrvSTP.csproj">
+      <Project>{3b214771-d182-4e95-ada1-aedebad6d698}</Project>
+      <Name>MF_SrvSTP</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

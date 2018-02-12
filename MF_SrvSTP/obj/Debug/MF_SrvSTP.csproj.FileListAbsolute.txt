@@ -1,0 +1,8 @@
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\bin\Debug\MF_SrvSTP.dll.config
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\bin\Debug\MF_SrvSTP.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\bin\Debug\MF_SrvSTP.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\obj\Debug\MF_SrvSTP.csprojResolveAssemblyReference.cache
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\obj\Debug\MF_SrvSTP.dll
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\obj\Debug\MF_SrvSTP.pdb
+C:\Users\brostos\Documents\BROC\Proyectos\SPEI\SIIFMFv2\MF_SrvSTP\bin\Debug\llave\prueba.p12

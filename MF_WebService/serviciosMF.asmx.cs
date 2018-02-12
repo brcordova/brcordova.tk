@@ -40,41 +40,69 @@ namespace MF_WebService
         {
             XmlDocument retorno = new XmlDocument();
             XDocument xmlResp = null;
+
+            Cuenta_Abono abono = new Cuenta_Abono();
+            Cuenta_Abono_Respuesta abonoResponse = new Cuenta_Abono_Respuesta();
+            Cuenta_Abono_Conciliacion abonoConciliacion = new Cuenta_Abono_Conciliacion();
+            Cuenta_CLABE clabe = new Cuenta_CLABE();
+
+            MFTool tool = new MFTool();
+
+            List<Cuenta_Abono> sendAbonos = new List<Cuenta_Abono>();
+
+            int intSts_Abono = 0;
+            string strCLABE = String.Empty;
+            string strCodigoError = intSts_Abono.ToString();
+            string strContrato_Id = String.Empty;
+            string strDV = String.Empty;
+            string strContDV = String.Empty;
+            string strContrato = String.Empty;
+
             try
             {
-                Cuenta_Abono abono = new Cuenta_Abono();
-                Cuenta_Abono_Respuesta abonoResponse = new Cuenta_Abono_Respuesta();
-                Cuenta_Abono_Conciliacion abonoConciliacion = new Cuenta_Abono_Conciliacion();
-                Cuenta_CLABE clabe = new Cuenta_CLABE();
-
                 if (xmlDoc != null)
                 {
                     #region Lectura del documento XML
                     XElement xml = XElement.Load(new XmlNodeReader(xmlDoc));
+                    IEnumerable<XElement> abonos = xml.Elements();
 
-                    //Abono abono = null;
-                    List<Cuenta_Abono> sendAbonos = new List<Cuenta_Abono>();
-                    IEnumerable<XElement> abonos = xml.Elements(); //xml.Elements();
                     foreach (var item in abonos)
                     {
-                        string strCLABE = item.Element("cuentaOrdenante").Value == null ? "" :
-                            item.Element("cuentaOrdenante").Value;
+                        // Obtenemos la CLABE para validarla.
+                        strCLABE = item.Element("cuentaBeneficiario").Value == null ? "" :
+                            item.Element("cuentaBeneficiario").Value;
 
                         #region Configuración de la respuesta
-                        string strContratoId = String.Empty;
-                        string strCodigoError = "0";
-                        int intSts_Abono = 0;
+                       
+                        strCodigoError = "0";
+                        intSts_Abono = 0;
+
+                        strContrato_Id = strCLABE.Substring(11, 6);
+                        strDV = tool.devuelveDV(strContrato_Id);
+
+                        strContrato = strContrato_Id;
+                        strContrato += strDV;
 
                         // Verifico si existe la CLABE en caso positivo 
-                        if (clabe.existeCLABE(strCLABE))
+                        if (clabe.validaCLABE(strCLABE))
                         {
-                            strCodigoError = "0"; // Registro satisfactorio.
-                            intSts_Abono = 10;
+                            // Verifico si existe la CLABE en caso positivo 
+                            if (clabe.existeCLABE(strCLABE))
+                            {
+                                strCodigoError = "0"; // Recibido.
+                                intSts_Abono = 10;
+
+                            }
+                            else
+                            {
+                                strCodigoError = "0"; // Cuenta inexistente.
+                                intSts_Abono = 40; // Error Registro SIIF
+                            }
                         }
                         else
                         {
-                            strCodigoError = "1"; // Cuenta inexistente.
-                            intSts_Abono = 40;
+                            strCodigoError = "0"; // Usuario 
+                            intSts_Abono = 60; // No definido
                         }
                         #endregion
 
@@ -114,7 +142,8 @@ namespace MF_WebService
                             item.Element("tipoCuentaOrdenante").Value == null ? 40 :
                             Convert.ToInt32(item.Element("tipoCuentaOrdenante").Value);
 
-                        abono.Cuenta_Abono_cuentaOrdenante = strCLABE;
+                        abono.Cuenta_Abono_cuentaOrdenante = item.Element("cuentaOrdenante").Value == null ? "" :
+                            item.Element("cuentaOrdenante").Value;
 
                         abono.Cuenta_Abono_rfcCurpOrdenante =
                             item.Element("rfcCurpOrdenante").Value == null ? "" :
@@ -140,9 +169,7 @@ namespace MF_WebService
                             item.Element("conceptoPago").Value == null ? "" :
                             item.Element("conceptoPago").Value;
 
-                        abono.Cuenta_Abono_referenciaNumerica =
-                            item.Element("referenciaNumerica").Value == null ? 0 :
-                            Convert.ToInt32(item.Element("referenciaNumerica").Value);
+                        abono.Cuenta_Abono_referenciaNumerica = Convert.ToInt32(strContrato);
 
                         abono.Cuenta_Abono_empresa =
                             item.Element("empresa").Value == null ? "" :
@@ -158,7 +185,7 @@ namespace MF_WebService
 
                         abono.Cuenta_Abono_Sts_Abono_Id = intSts_Abono;
 
-                        // Agrego al listado
+                        // Agrego el abono y al listado
                         if (abono.Agregar())
                             sendAbonos.Add(abono);
 
@@ -174,6 +201,11 @@ namespace MF_WebService
                         abonoResponse.Cuenta_Abono_Respuesta_rastreoDevolucion = "MFRD-" + abono.Id.ToString().PadLeft(5, '0');
 
                         abonoResponse.Agregar();
+
+                        // Actualizamos la clave de rastreo de Devolución del Abono
+                        abono.Cuenta_Abono_claveRastreoDev = abonoResponse.Cuenta_Abono_Respuesta_rastreoDevolucion.Trim();
+
+                        abono.Actualizar();
                         #endregion
 
                         #region Generar la respuesta
@@ -190,27 +222,79 @@ namespace MF_WebService
                         #endregion
 
                         #region Registrar conciliación
-                        abonoConciliacion.psintBancoId = (int)abono.Cuenta_Abono_institucionBeneficiaria;
-                        abonoConciliacion.pstrCuentaId = abono.Cuenta_Abono_cuentaBeneficiario;
-                        //abonoConciliacion.pintConciliacionPendienteId  
-                        abonoConciliacion.pdtmConciliacionPendienteFecha = abono.Cuenta_Abono_fechaOperacion;
-                        abonoConciliacion.pstrConciliacionPendienteDsc = abono.Cuenta_Abono_conceptoPago;
-                        abonoConciliacion.pfltConciliacionPendienteImporte =
-                            (decimal)abono.Cuenta_Abono_monto;
-                        abonoConciliacion.psintConciliacionPendienteIngEgr = 5;
-                        abonoConciliacion.pstrUsuarioId = "BROSTOS";
-                        abonoConciliacion.pstrConciliacionPendienteReferencia =
-                            abono.Cuenta_Abono_referenciaNumerica.ToString();
-                        abonoConciliacion.pstrConciliacionPendienteMovtoBanco = "";
-                        abonoConciliacion.pstrConciliacionPendienteFechaImp = DateTime.Now.ToString();
-                        abonoConciliacion.pbitConciliacionPendienteAut = false;
-                        abonoConciliacion.pstrConciliacionPendienteObservaciones = "";
-                        abonoConciliacion.pstrTipoLoquidacionBancoId = "9999";
-                        abonoConciliacion.pstrConciliacionPendienteCheque = "";
-                        abonoConciliacion.RegistraConciliacion();
+                        if (strCodigoError == "0")
+                        {
+                            abonoConciliacion.psintBancoId = (int)abono.Cuenta_Abono_institucionBeneficiaria;
+                            abonoConciliacion.pstrCuentaId = abono.Cuenta_Abono_cuentaBeneficiario;
+                            //abonoConciliacion.pintConciliacionPendienteId  
+                            abonoConciliacion.pdtmConciliacionPendienteFecha = abono.Cuenta_Abono_fechaOperacion;
+                            abonoConciliacion.pstrConciliacionPendienteDsc = abono.Cuenta_Abono_conceptoPago;
+                            abonoConciliacion.pfltConciliacionPendienteImporte =
+                                (decimal)abono.Cuenta_Abono_monto;
+                            abonoConciliacion.psintConciliacionPendienteIngEgr = 5;
+                            abonoConciliacion.pstrUsuarioId = "SPEIMF";
+                            abonoConciliacion.pstrConciliacionPendienteReferencia =
+                                strContrato;
+                            //abono.Cuenta_Abono_referenciaNumerica.ToString();
+                            abonoConciliacion.pstrConciliacionPendienteMovtoBanco = "";
+                            abonoConciliacion.pstrConciliacionPendienteFechaImp = DateTime.Now.ToString();
+                            abonoConciliacion.pbitConciliacionPendienteAut = false;
+                            abonoConciliacion.pstrConciliacionPendienteObservaciones = "Proceso SPEI";
+                            abonoConciliacion.pstrTipoLoquidacionBancoId = "9999";
+                            abonoConciliacion.pstrConciliacionPendienteCheque = "";
+                            abonoConciliacion.RegistraConciliacion();
+
+                            if (abonoConciliacion.RegistraConciliacion())
+                                abono.Cuenta_Abono_Sts_Abono_Id = 20; // Abono exitoso
+                            else
+                                abono.Cuenta_Abono_Sts_Abono_Id = 40; //Error al registrar la conciliación
+
+                        }
+
+                        // Actualizo el status del abono.
+                        abono.Actualizar();
                         #endregion
 
+                        #region Verifico si existe una orden.
 
+                        /* Tengo que checar que si no existe en la tabla Contrato_Digito
+                         * el registro de Contrato_Id, Banco, digito no se va a mostrar
+                         * en resultado en Ordenes Pendientes
+                        */
+
+                        DataSet ordenesPendientes = tool.obtenerOrdenesPendientes(DateTime.Now);
+                        if (ordenesPendientes.Tables.Count > 0)
+                        {
+                            if (ordenesPendientes.Tables[0].Rows.Count > 0)
+                            {
+                                foreach (DataRow reg in ordenesPendientes.Tables[0].Rows)
+                                {
+                                    string strImporte = Convert.ToString(reg["Conciliacion_Pendiente_Importe"]);
+                                    if (Convert.ToDecimal(strImporte) == abono.Cuenta_Abono_monto)
+                                        abono.Cuenta_Abono_Sts_Abono_Id = 30;
+                                    else
+                                        abono.Cuenta_Abono_Sts_Abono_Id = 35;
+                                }
+                            }
+                            else
+                                abono.Cuenta_Abono_Sts_Abono_Id = 35;
+                        }
+                        else
+                            abono.Cuenta_Abono_Sts_Abono_Id = 35;
+                        abono.Actualizar();
+
+                        /*
+                         * 
+                         *  CREAR UNA CLASE AUXILIAR PARA OBTENER DIGITO VERIFICADOR
+                         *  AGREGAR REGISTRO DEL DIGITO VERIFICADOR Y MAS
+                         *  Listo clase: MFTools.cs
+                         */
+
+
+                        // Voy a crear una clase para verificar la orden.
+
+
+                        #endregion
 
                     }
                     #endregion

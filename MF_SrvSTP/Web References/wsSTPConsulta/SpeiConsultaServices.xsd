@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:ns0="http://h2h.integration.spei.enlacefi.lgec.com/" targetNamespace="http://h2h.integration.spei.enlacefi.lgec.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="consultaOrdenRecibida">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conciliacionServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:conciliacion" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="facturas">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="factura" nillable="true" type="ns0:facturaWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnviadaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ordenPagoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="estadoOperacionesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:estadoOperacionesResponseWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaNominaTesofeFechaOperacion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="institucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="denominacionesWSReturn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="institucion" nillable="true" type="ns0:institucionWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnviada">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPCuentaOperanteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:listaConsultaCEPReturn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnvFirma">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="idOrden" type="xsd:int" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="saldoBanxicoDTO">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="saldoNoReservado" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="saldoReservado" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnvFirmaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ordenPagoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPLote">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="parametrosConsulta" type="ns0:parametrosConsulta" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnviadaRastreoResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ordenPagoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCatalogos" />
+  <xsd:complexType name="denominacionesPagosMovilesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:denominacionesWSReturn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaSaldoCuenta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listaConsultaCEPReturn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="cep" nillable="true" type="ns0:cep" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cda">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cadena" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cadenaOriginal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="conceptoPago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaCaptura" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="hora" type="xsd:string" />
+      <xsd:element minOccurs="0" name="iva" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreInstBeneficiaria" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreInstOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="referenciaNumerica" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rfcCurpBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfcCurpOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="sello" type="xsd:string" />
+      <xsd:element minOccurs="0" name="selloDigital" type="xsd:string" />
+      <xsd:element minOccurs="0" name="serieCertificado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoPago" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaSaldoCuentaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:saldoCuentaReturn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCatalogosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:catalogosWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:ordenPagoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:cep" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenRecibidaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:ordenPagoWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="movimiento">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="abono" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cargo" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="clabe" type="xsd:string" />
+      <xsd:element minOccurs="0" name="contraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaLiquidacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionNombre" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="referenciaNumerica" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conciliacionServiceFirmaResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:conciliacion" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consolidadoOrdenesDTO">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="countCanceladasE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countConfirmadasE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countDevolucionesE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countDevolucionesR" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countEnviadasE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countLiquidadasE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countLiquidadasR" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countPendientesE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countPorEnviarE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countRechazadasAdapterE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countRechazadasBanxicoE" type="xsd:long" />
+      <xsd:element minOccurs="0" name="countRecibidasR" type="xsd:long" />
+      <xsd:element minOccurs="0" name="sumCanceladasE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumConfirmadasE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumDevolucionesE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumDevolucionesR" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumEnviadasE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumLiquidadasE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumLiquidadasR" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumPendientesE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumPorEnviarE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumRechazadasAdapterE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumRechazadasBanxicoE" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="sumRecibidasR" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conciliacionService">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaInicial" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaFinal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="recorreSubempresas" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="parametrosConsulta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="claveInstitucionBeneficiario" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveInstitucionOrdenante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fecha" type="xsd:int" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="nombreInstitucionBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreInstitucionOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="estadoOperacionesResponseWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="operacion" nillable="true" type="ns0:estadoOperacionesWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="saldoCuenta">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cargosPendientes" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fondeoInicialPendiente" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionSpei" type="xsd:int" />
+      <xsd:element minOccurs="0" name="saldo" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="saldoInicial" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="version" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conciliacionServiceFirma">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaInicial" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaFinal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="recorreSubempresas" type="xsd:int" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPCuentaOpeLoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:listaConsultaCEPReturn" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaSaldosResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:consolidadoSaldosDTO" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="speiServiceResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="descripcionError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPCuentaOperante">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacionInicial" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperacionFinal" type="xsd:int" />
+      <xsd:element minOccurs="0" name="cuentaOperante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cuentaWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="movimiento" nillable="true" type="ns0:movimiento" />
+      <xsd:element minOccurs="0" name="saldo" type="ns0:saldo" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cep">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cda" type="ns0:cda" />
+      <xsd:element minOccurs="0" name="estadoConsulta" type="xsd:int" />
+      <xsd:element minOccurs="0" name="mensajeError" type="xsd:string" />
+      <xsd:element minOccurs="0" name="parametrosConsulta" type="ns0:parametrosConsulta" />
+      <xsd:element minOccurs="0" name="url" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="institucionWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="denominacion" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+    <xsd:attribute name="clave" type="xsd:int" />
+    <xsd:attribute name="nombre" type="xsd:string" />
+  </xsd:complexType>
+  <xsd:complexType name="estadoOperacionesWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" name="id" type="xsd:int" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="nominaTesofeWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="montoPagos" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="numeroPagos" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="saldoCuentaReturn">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cargosPendientes" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="saldo" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="estadoOperaciones">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="recorreSubempresas" type="xsd:int" />
+      <xsd:element minOccurs="0" name="estados" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPCuentaOpeLote">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacionInicial" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaOperacionFinal" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="cuentasOperante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="catalogosWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="clave" type="xsd:int" />
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipo" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaNominaTesofe">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="institucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="esDiaInhabil">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fecha" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="esDiaInhabilResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:speiServiceResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="facturaWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="folio" type="xsd:string" />
+      <xsd:element minOccurs="0" name="iva" type="xsd:double" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultado">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codigo" type="xsd:int" />
+      <xsd:element minOccurs="0" name="descripcion" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEPLoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="return" type="ns0:cep" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaNominaTesofeFechaOperacionResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:nominaTesofeWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="denominacionesPagosMoviles">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="saldo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="abonos" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cargos" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cuenta" type="xsd:string" />
+      <xsd:element name="nAbonos" type="xsd:int" />
+      <xsd:element name="nCargos" type="xsd:int" />
+      <xsd:element minOccurs="0" name="saldo" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="saldoPeriodo" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Exception">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="message" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenEnviadaRastreo">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="operante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="conciliacion">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="cuentaWS" type="ns0:cuentaWS" />
+      <xsd:element minOccurs="0" name="resultado" type="ns0:resultado" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consolidadoSaldosDTO">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="abonosOrdenes" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="abonosTraspasos" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cargosOrdenes" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="cargosTraspasos" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="consolidadoOrdenes" type="ns0:consolidadoOrdenesDTO" />
+      <xsd:element minOccurs="0" name="saldoBanxico" type="ns0:saldoBanxicoDTO" />
+      <xsd:element minOccurs="0" name="saldoCuenta" type="ns0:saldoCuenta" />
+      <xsd:element minOccurs="0" name="saldoInicial" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="totalLocal" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="tsFinal" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaCEP">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="parametrosConsulta" type="ns0:parametrosConsulta" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ordenPagoWS">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="causaDevolucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="claveCatUsuario1" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveCatUsuario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="clavePago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="claveRastreoDevolucion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="conceptoPago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="conceptoPago2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="digitoIdentificadorBeneficiario" type="xsd:int" />
+      <xsd:element minOccurs="0" name="digitoIdentificadorOrdenante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="emailBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="empresa" type="xsd:string" />
+      <xsd:element minOccurs="0" name="error" type="xsd:string" />
+      <xsd:element minOccurs="0" name="estado" type="xsd:string" />
+      <xsd:element minOccurs="0" name="facturas" type="ns0:facturas" />
+      <xsd:element minOccurs="0" name="fechaLimitePago" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="firma" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folioCobroSPEI" type="xsd:string" />
+      <xsd:element minOccurs="0" name="folioOrigen" type="xsd:string" />
+      <xsd:element minOccurs="0" name="idCliente" type="xsd:string" />
+      <xsd:element minOccurs="0" name="idEF" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionContraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="iva" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="medioEntrega" type="xsd:int" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="montoInteres" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="montoOriginal" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="numCelularBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="numCelularOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="prioridad" type="xsd:int" />
+      <xsd:element minOccurs="0" name="referenciaCobranza" type="xsd:string" />
+      <xsd:element minOccurs="0" name="referenciaNumerica" type="xsd:int" />
+      <xsd:element minOccurs="0" name="reintentos" type="xsd:int" />
+      <xsd:element minOccurs="0" name="rfcCurpBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfcCurpBeneficiario2" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rfcCurpOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tipoCuentaBeneficiario" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoCuentaBeneficiario2" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoCuentaOrdenante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoOperacion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="tipoPago" type="xsd:int" />
+      <xsd:element minOccurs="0" name="topologia" type="xsd:string" />
+      <xsd:element minOccurs="0" name="tsAcuseBanxico" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsAcuseConfirmacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsCaptura" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsConfirmacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsDevolucion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsDevolucionRecibida" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsEntrega" type="xsd:long" />
+      <xsd:element minOccurs="0" name="tsLiquidacion" type="xsd:long" />
+      <xsd:element minOccurs="0" name="usuario" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaSaldos">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="claveInstitucion" type="xsd:int" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaOrdenes">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="tipoOrden" type="xsd:string" />
+      <xsd:element minOccurs="0" name="fechaLiqInicial" type="xsd:int" />
+      <xsd:element minOccurs="0" name="fechaLiqFinal" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionOperante" type="xsd:int" />
+      <xsd:element minOccurs="0" name="institucionContraparte" type="xsd:int" />
+      <xsd:element minOccurs="0" name="nombreOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nombreBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cveRastreo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaOrdenante" type="xsd:string" />
+      <xsd:element minOccurs="0" name="cuentaBeneficiario" type="xsd:string" />
+      <xsd:element minOccurs="0" name="monto" type="xsd:decimal" />
+      <xsd:element minOccurs="0" name="token" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="consultaNominaTesofeResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="return" type="ns0:nominaTesofeWS" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="consultaOrdenRecibida" type="ns0:consultaOrdenRecibida" />
+  <xsd:element name="conciliacionServiceResponse" type="ns0:conciliacionServiceResponse" />
+  <xsd:element name="conciliacionServiceFirma" type="ns0:conciliacionServiceFirma" />
+  <xsd:element name="consultaOrdenEnviadaResponse" type="ns0:consultaOrdenEnviadaResponse" />
+  <xsd:element name="consultaCEPCuentaOpeLoteResponse" type="ns0:consultaCEPCuentaOpeLoteResponse" />
+  <xsd:element name="consultaSaldosResponse" type="ns0:consultaSaldosResponse" />
+  <xsd:element name="estadoOperacionesResponse" type="ns0:estadoOperacionesResponse" />
+  <xsd:element name="consultaCEPCuentaOperante" type="ns0:consultaCEPCuentaOperante" />
+  <xsd:element name="consultaNominaTesofeFechaOperacion" type="ns0:consultaNominaTesofeFechaOperacion" />
+  <xsd:element name="consultaOrdenEnviada" type="ns0:consultaOrdenEnviada" />
+  <xsd:element name="consultaCEPCuentaOperanteResponse" type="ns0:consultaCEPCuentaOperanteResponse" />
+  <xsd:element name="consultaOrdenEnvFirma" type="ns0:consultaOrdenEnvFirma" />
+  <xsd:element name="consultaOrdenEnvFirmaResponse" type="ns0:consultaOrdenEnvFirmaResponse" />
+  <xsd:element name="consultaCEPLote" type="ns0:consultaCEPLote" />
+  <xsd:element name="consultaOrdenEnviadaRastreoResponse" type="ns0:consultaOrdenEnviadaRastreoResponse" />
+  <xsd:element name="consultaCatalogos" type="ns0:consultaCatalogos" />
+  <xsd:element name="denominacionesPagosMovilesResponse" type="ns0:denominacionesPagosMovilesResponse" />
+  <xsd:element name="estadoOperaciones" type="ns0:estadoOperaciones" />
+  <xsd:element name="consultaCEPCuentaOpeLote" type="ns0:consultaCEPCuentaOpeLote" />
+  <xsd:element name="consultaSaldoCuenta" type="ns0:consultaSaldoCuenta" />
+  <xsd:element name="consultaNominaTesofe" type="ns0:consultaNominaTesofe" />
+  <xsd:element name="esDiaInhabil" type="ns0:esDiaInhabil" />
+  <xsd:element name="esDiaInhabilResponse" type="ns0:esDiaInhabilResponse" />
+  <xsd:element name="consultaSaldoCuentaResponse" type="ns0:consultaSaldoCuentaResponse" />
+  <xsd:element name="consultaCatalogosResponse" type="ns0:consultaCatalogosResponse" />
+  <xsd:element name="consultaCEPLoteResponse" type="ns0:consultaCEPLoteResponse" />
+  <xsd:element name="consultaNominaTesofeFechaOperacionResponse" type="ns0:consultaNominaTesofeFechaOperacionResponse" />
+  <xsd:element name="denominacionesPagosMoviles" type="ns0:denominacionesPagosMoviles" />
+  <xsd:element name="consultaOrdenesResponse" type="ns0:consultaOrdenesResponse" />
+  <xsd:element name="Exception" type="ns0:Exception" />
+  <xsd:element name="consultaCEPResponse" type="ns0:consultaCEPResponse" />
+  <xsd:element name="consultaOrdenEnviadaRastreo" type="ns0:consultaOrdenEnviadaRastreo" />
+  <xsd:element name="consultaOrdenRecibidaResponse" type="ns0:consultaOrdenRecibidaResponse" />
+  <xsd:element name="conciliacionServiceFirmaResponse" type="ns0:conciliacionServiceFirmaResponse" />
+  <xsd:element name="consultaCEP" type="ns0:consultaCEP" />
+  <xsd:element name="conciliacionService" type="ns0:conciliacionService" />
+  <xsd:element name="consultaSaldos" type="ns0:consultaSaldos" />
+  <xsd:element name="consultaOrdenes" type="ns0:consultaOrdenes" />
+  <xsd:element name="consultaNominaTesofeResponse" type="ns0:consultaNominaTesofeResponse" />
+</xsd:schema>

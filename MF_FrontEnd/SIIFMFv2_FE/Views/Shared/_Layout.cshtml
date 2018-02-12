@@ -27,7 +27,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    @*@//switch (TempData["Nivel"].ToString().Trim())*@
                     @switch(System.Web.HttpContext.Current.Session["Nivel"].ToString() )
                     {
                         case "5": // Admninistracion
@@ -36,11 +35,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catálogos <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">@Html.ActionLink("Inicio", "Index", "Home")</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
+                                    @*<li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>*@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#">Bitácora de accesos</a></li>
-                                    <li role="separator" class="divider"></li>
+                                    @*<li role="separator" class="divider"></li>*@
                                     <li><a href="#">Bitácora de errores </a></li>
                                 </ul>
                             </li>
@@ -50,7 +49,7 @@
                                     <li>@Html.ActionLink("Compra", "Index", "Abono")</li>
                                     <li>@Html.ActionLink("Venta", "Index", "Abono")</li>
                                     <li>@Html.ActionLink("Banco", "Index", "Banco")</li>
-                                    <li>@Html.ActionLink("Acerca", "About", "Home")</li>
+                                    @*<li>@Html.ActionLink("Acerca", "About", "Home")</li>*@
                                 </ul>
                             </li>
                             break;

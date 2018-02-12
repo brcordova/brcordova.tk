@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx?disco" filename="ServiciosMF.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://fondos-dbdev/ServiciosMF/ServiciosMF.asmx?wsdl" filename="ServiciosMF.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx?disco" filename="ServiciosMF.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://Fondos-DevSQL12/ServiciosMF/ServiciosMF.asmx?wsdl" filename="ServiciosMF.wsdl" />
   </Results>
 </DiscoveryClientResultsFile>
